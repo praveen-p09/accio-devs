@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import Addlocation from './Components/Addlocation'
 import Main from './page/Main'
+import MapContainer from './page/Map';
 
 function App() {
 
@@ -14,10 +15,10 @@ function App() {
   return (
     <>
       <Router>
-          
+      <MapContainer/> 
             <Routes>
               <Route exact path="/test" element={ <Addlocation/> } />
-              <Route exact path="/" element={ <Main/> } />
+              
             </Routes>
           
         </Router>
