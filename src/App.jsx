@@ -8,6 +8,7 @@ import {
 import Addlocation from './Components/Addlocation'
 import Main from './page/Main'
 import MapContainer from './page/Map';
+import ImageUploadForm from './ComplaintForm/form'
 
 function App() {
 
@@ -18,10 +19,12 @@ function App() {
       <MapContainer/> 
             <Routes>
               <Route exact path="/test" element={ <Addlocation/> } />
-              
+              <Route path="/form" element={<ImageUploadForm />} />
+
             </Routes>
           
         </Router>
+
     </>
   )
 }
