@@ -25,8 +25,6 @@ function App() {
               <Route path="/form" element={<ImageUploadForm/>} />
               <Route path="/pothole/:holeID" element={<Pothole/>} />
               <Route path="/stream" element={<IframeComponent/>} />
-
-
             </Routes>
           
         </Router>
