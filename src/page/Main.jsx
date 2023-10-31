@@ -2,9 +2,9 @@ import React from 'react'
 
 const Main = () => {
   return (
-    <div>
-       
-    </div>
+    
+    <model-viewer src="../../model.glb" alt="A 3D model of an item" auto-rotate camera-controls></model-viewer>
+    
   )
 }
 
