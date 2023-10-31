@@ -9,6 +9,7 @@ import Addlocation from './Components/Addlocation'
 import Main from './page/Main'
 import MapContainer from '../src/page/mainMap/Map';
 import ImageUploadForm from './Components/ComplaintForm/form';
+import TabularData from './Components/ComplaintData/dataTable'
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
               <Route exact path="/test" element={ <Addlocation/> } />
               <Route exact path="/" element={  <MapContainer/>  } />
               <Route path="/form" element={<ImageUploadForm/>} />
+              <Route path="/data" element={<TabularData/>} />
 
             </Routes>
           
