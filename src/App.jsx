@@ -7,8 +7,9 @@ import {
 } from "react-router-dom";
 import Addlocation from './Components/Addlocation'
 import Main from './page/Main'
-import MapContainer from './page/Map';
-import ImageUploadForm from './ComplaintForm/form'
+import MapContainer from '../src/page/mainMap/Map';
+import ImageUploadForm from './Components/ComplaintForm/form';
+
 
 function App() {
 
@@ -16,10 +17,11 @@ function App() {
   return (
     <>
       <Router>
-      <MapContainer/> 
+     
             <Routes>
               <Route exact path="/test" element={ <Addlocation/> } />
-              <Route path="/form" element={<ImageUploadForm />} />
+              <Route exact path="/" element={  <MapContainer/>  } />
+              <Route path="/form" element={<ImageUploadForm/>} />
 
             </Routes>
           

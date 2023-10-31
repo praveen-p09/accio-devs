@@ -1,5 +1,6 @@
 
 import { initializeApp } from "firebase/app";
+import { getStorage } from 'firebase/storage';
 import {
     getAuth,
     GoogleAuthProvider,
@@ -28,6 +29,7 @@ import {
 const app = initializeApp(firebaseConfig);
 
 export const auth = getAuth(app);
+export const imageDb = getStorage(app)
 
 const googleProvider = new GoogleAuthProvider();
 // Sign in and sign out functions
@@ -40,6 +42,8 @@ export const signUserAccountOut = () => signOut(auth);
 export const db=getFirestore(app);
 
 const location = collection(db, "locations");
+
+
 // Add location to firestore database
 export const addLocationtoDb = async (lati,longi) => {
     await addDoc(location, {
@@ -55,3 +59,11 @@ export const getCoordinate = async () => {
     return data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
   };
 
+//forms data into the firebase
+const formdata = collection(db, "form");
+export const addFormdata = async (name,email,phoneNumber,message,address,city,district,state,pincode,ImgUrl) => {
+  await addDoc(formdata, {
+    name,email,phoneNumber,message,address,city,district,state,pincode,ImgUrl,
+    date: new Date().toJSON().slice(0, 10).replace(/-/g, "/"),
+  });
+};

@@ -1,13 +1,18 @@
 import React, { useState } from 'react';
-import { withScriptjs, withGoogleMap, GoogleMap, Marker } from 'react-google-maps';
+import { imageDb } from '../../utilities/Firebase'
+import { getDownloadURL, listAll, ref, uploadBytes } from "firebase/storage";
+import { v4 } from "uuid";
+// import { withScriptjs, withGoogleMap, GoogleMap, Marker } from 'react-google-maps';
 import "./form.css";
-const MapComponent = withScriptjs(
-  withGoogleMap((props) => (
-    <GoogleMap defaultZoom={8} defaultCenter={{ lat: props.lat, lng: props.lng }}>
-      {props.isMarkerShown && <Marker position={{ lat: props.lat, lng: props.lng }} />}
-    </GoogleMap>
-  ))
-);
+import { addFormdata } from '../../utilities/Firebase'
+
+// const MapComponent = withScriptjs(
+//   withGoogleMap((props) => (
+//     <GoogleMap defaultZoom={8} defaultCenter={{ lat: props.lat, lng: props.lng }}>
+//       {props.isMarkerShown && <Marker position={{ lat: props.lat, lng: props.lng }} />}
+//     </GoogleMap>
+//   ))
+// );
 
 function ImageUploadForm() {
   const [name, setName] = useState('');
@@ -16,6 +21,7 @@ function ImageUploadForm() {
   const [message, setMessage] = useState('');
 
   const [image, setImage] = useState(null);
+  const [ImgUrl, setImgUrl] = useState('');
   // const [name, setName] = useState('');
   const [location, setLocation] = useState({ lat: 0, lng: 0 });
   const [showMap, setShowMap] = useState(false);
@@ -36,46 +42,64 @@ function ImageUploadForm() {
     e.preventDefault();
 
     // You can add your image upload and form submission logic here.
+   
+      if(image !==null){
+         const imgRef =  ref(imageDb,`files/${v4()}`)
+         uploadBytes(imgRef,image).then(value=>{
+             console.log(value)
+             getDownloadURL(value.ref).then(url=>{
+                 setImgUrl(url)
+             })
+         })
+      }
+     
     // Include the name, location.lat, and location.lng in the submission.
-
-    // Reset the form after submission
-    console.log("Name:", name);
-    console.log("Email:", email);
-    console.log("Phone Number:", phoneNumber);
-    console.log("Message:", message);
+    addFormdata(name,email,phoneNumber,message,address,city,district,state,pincode,ImgUrl);
+    // // Reset the form after submission
+    // console.log("Name:", name);
+    // console.log("Email:", email);
+    // console.log("Phone Number:", phoneNumber);
+    // console.log("Message:", message);
 
     // Reset the form after submission
     setName('');
     setEmail('');
     setPhoneNumber('');
     setMessage('');
-    
-    setImage(null);
-    setName('');
-    setLocation({ lat: 0, lng: 0 });
-    setShowMap(false);
-
-
-    // e.preventDefault();
-
-    // You can access the form data (address, city, district, state, and pincode)
-    // and perform your submission logic here.
-
-    // For this example, we'll just log the form data.
-    console.log("Address:", address);
-    console.log("City:", city);
-    console.log("District:", district);
-    console.log("State:", state);
-    console.log("Pincode:", pincode);
-
     // Reset the form after submission
     setAddress('');
     setCity('');
     setDistrict('');
     setState('');
     setPincode('');
-  };
+    setImgUrl('');
+    
+    // setImage(null);
+    // setName('');
+    // setLocation({ lat: 0, lng: 0 });
+    // setShowMap(false);
 
+
+    // // e.preventDefault();
+
+    // // You can access the form data (address, city, district, state, and pincode)
+    // // and perform your submission logic here.
+
+    // // For this example, we'll just log the form data.
+    // console.log("Address:", address);
+    // console.log("City:", city);
+    // console.log("District:", district);
+    // console.log("State:", state);
+    // console.log("Pincode:", pincode);
+
+    console.log(ImgUrl);
+     
+    
+  };
+  // map.on('click', function (e) {
+  //   setLocation(e.lngLat);
+  // });
+  
   return (
     <div className="form-container">
       <h2>Upload details about potholes</h2>
@@ -201,17 +225,17 @@ function ImageUploadForm() {
           </button>
         </div>
 
-        {showMap && (
+        {/* {showMap && (
           <MapComponent
             isMarkerShown
             lat={location.lat}
             lng={location.lng}
-            googleMapURL="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"
+            googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyAMtbc4WU0CM-xz0iurLoefdXuVlSBABYQ"
             loadingElement={<div style={{ height: '100%' }} />}
             containerElement={<div style={{ height: '200px' }} />}
             mapElement={<div style={{ height: '100%' }} />}
           />
-        )}
+        )} */}
 
         <button type="submit">Submit</button>
       </form>
