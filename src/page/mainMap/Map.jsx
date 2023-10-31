@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import mapboxgl from 'mapbox-gl';
+import {getCoordinate } from '../../utilities/Firebase'
 import './style.css'
 
 export var map;
@@ -7,7 +8,16 @@ export default function MapComponent() {
    
   
     const [currentLocation, setCurrentLocation] = useState({ lat: 21.249442788089603,  lng: 81.60535924747276});
-    
+    const [locfromdb, setlocfromdb] = useState([]);
+
+    useEffect(() => {
+        const getloca = async () => {
+            const data = await getCoordinate();
+            setlocfromdb(data);
+        }
+        getloca();
+        console.log(locfromdb);
+    }, [])
 
     useEffect(() => {
         mapboxgl.accessToken = 'pk.eyJ1IjoicmFqYXNnaDE4IiwiYSI6ImNsbDJsaXBxejAxanMzZHA4N2M3Y25nZnQifQ.tax8bLXV0ELmaMYH1PtevQ';
@@ -23,10 +33,25 @@ export default function MapComponent() {
             .addTo(map)
 
         var fullscreenControl = new mapboxgl.FullscreenControl();
-            map.addControl(fullscreenControl, 'top-right'); // You can change the position as needed
-            
+            map.addControl(fullscreenControl, 'top-right');
+             // You can change the position as needed
+       
+ 
     }, [currentLocation]);
 
+    useEffect(() => {
+        map.addControl(
+            new MapboxDirections({
+            accessToken: mapboxgl.accessToken
+            }),
+            'top-left'
+            );
+
+        // directions.setOrigin(21.249822174212973, 81.6050290955325); // Start location
+        // directions.setDestination(21.257699896727612, 81.57949959595742); // End location
+
+    }, [])
+    
    
 
 
