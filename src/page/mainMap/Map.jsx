@@ -31,7 +31,7 @@ export default function MapComponent() {
             // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
             style: 'mapbox://styles/mapbox/streets-v12', // style URL
             center: [currentLocation.lng, currentLocation.lat], // starting position [lng, lat]
-            zoom: 18 // starting zoom
+            zoom: 13 // starting zoom
         });
 
         // const marker = new mapboxgl.Marker()
@@ -130,7 +130,7 @@ export default function MapComponent() {
       
     }, [])
 
-    // window.addEventListener('beforeunload',initializeMap );
+    window.addEventListener('beforeunload',initializeMap );
 
 
     return (

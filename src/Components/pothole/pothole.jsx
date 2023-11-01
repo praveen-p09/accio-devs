@@ -1,21 +1,54 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { useParams } from "react-router-dom";
+import {getCoordinate } from '../../utilities/Firebase'
 import './pothole.css';
 const Pothole = () => {
+  const postId = useParams();
+  // console.log(postId)
+  const [locfromdb, setlocfromdb] = useState([]);
+const [holedetail, setholedetail] = useState();
+  const [hole, sethole] = useState();
+
+  
+
+  
+
+  useEffect(() => {
+    const getloca = async () => {
+        const data = await getCoordinate();
+        setlocfromdb(data);
+        const postInfo = data.filter((x) => x.id === postId.holeID)[0];
+        console.log(postInfo);
+        setholedetail(postInfo)
+        console.log(holedetail)
+        // console.log(data);
+    }
+    
+    getloca();
+   
+    
+}, [])
+
+
   return (
     <>
       <div className="pothole">
-      <h1>Pothole #1</h1>
+      
+      {holedetail && (
+       
       <div className="container">
+         <h1>Pothole -{holedetail.id}</h1>
+         <div className='flexr'>
         <div className='bg3d wrapper'>
           <img src="https://t3.ftcdn.net/jpg/03/60/90/92/360_F_360909266_3mWP6FZZOQMG5aRUozFYPKjPm6FK4nUx.jpg" alt="bg-scale" />
-          <model-viewer id="reveal" loading="eager" src="../../model.glb" alt="A 3D model of an item" camera-controls></model-viewer>
+          <model-viewer id="reveal" loading="eager" src={`../../${holedetail.glbname}.glb`} alt="A 3D model of an item" camera-controls></model-viewer>
         </div>
         <div className="details">
           <h3>Details</h3>
-          <p>Coordinates : 22.89989, 18.982972</p>
-          <p>Depth : 4 cm</p>
-          <p>Diameter : 30 cm</p>
-          <p>Severity : High</p>
+          <p>Coordinates : {holedetail.longi}, {holedetail.lati}</p>
+          <p>Depth:{holedetail.depth}</p>
+          <p>Diameter :{holedetail.diameter}cm</p>
+          <p>Severity :{holedetail.severity}</p>
           <p>Material : Asphalt concrete</p>
           <p>Suggestion : </p>
           <ul>
@@ -26,6 +59,11 @@ const Pothole = () => {
           </ul>
           
         </div>
+        </div>
+      </div>)}
+
+      <div className='tracking '>
+        <h1> Progress Tracking </h1>
       </div>
       </div>
     </>
