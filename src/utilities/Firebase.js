@@ -61,15 +61,15 @@ export const getCoordinate = async () => {
 
 //forms data into the firebase
 const formdata = collection(db, "form");
-export const addFormdata = async (name,email,phoneNumber,message,address,city,district,state,pincode,ImgUrl) => {
+export const addFormdata = async (name,email,phoneNumber,message,address,city,district,state,pincode,ImgUrl,pothole) => {
   await addDoc(formdata, {
-    name,email,phoneNumber,message,address,city,district,state,pincode,ImgUrl,
+    name,email,phoneNumber,message,address,city,district,state,pincode,ImgUrl,pothole,
     date: new Date().toJSON().slice(0, 10).replace(/-/g, "/"),
   });
 };
 
 export const getFormdata = async () => {
-  const data = await getDocs(form);
+  const data = await getDocs(formdata);
   return data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
 };
 

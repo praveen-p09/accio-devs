@@ -9,7 +9,7 @@ class IframeComponent extends React.Component {
           title="Embedded Content"
           width="560"
           height="315"
-          src="https://www.google.com"
+          src="http://"
           frameborder="0"
           allowfullscreen
         ></iframe>
