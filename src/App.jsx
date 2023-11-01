@@ -10,6 +10,7 @@ import MapContainer from '../src/page/mainMap/Map';
 import ImageUploadForm from './Components/ComplaintForm/form';
 import Pothole from './Components/pothole/pothole';
 import IframeComponent from './Components/stream/stream';
+import TabularData from './Components/ComplaintData/dataTable';
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
               <Route path="/form" element={<ImageUploadForm/>} />
               <Route path="/pothole/:holeID" element={<Pothole/>} />
               <Route path="/stream" element={<IframeComponent/>} />
+              <Route path="/formdisplay" element={<TabularData/>} />
              
             </Routes>
           

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { addLocationtoDb, getCoordinate } from '../utilities/Firebase'
+import { getFormdata } from '../../utilities/Firebase'
 
 
 function TabularData() {
@@ -9,14 +9,15 @@ function TabularData() {
 
   useEffect(() => {
     // Fetch the data from your database or API endpoint
-    axios.get('YOUR_API_ENDPOINT')
-      .then((response) => {
-        setData(response.data); // Assuming the response is an array of objects
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.error('Error fetching data:', error);
-      });
+    const getdta = async () => {
+        const formdata = await getFormdata();
+        console.log(formdata)
+        setData(formdata);
+        
+    }
+  getdta();
+  setLoading(false)
+    
   }, []);
 
   return (

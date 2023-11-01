@@ -19,6 +19,7 @@ function ImageUploadForm() {
   const [email, setEmail] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [message, setMessage] = useState('');
+  const [pothole, setpothole] = useState('');
 
   const [image, setImage] = useState(null);
   const [ImgUrl, setImgUrl] = useState('');
@@ -35,6 +36,7 @@ function ImageUploadForm() {
 
   const handleImageChange = (e) => {
     const selectedImage = e.target.files[0];
+    
     setImage(selectedImage);
   };
 
@@ -54,7 +56,9 @@ function ImageUploadForm() {
       }
      
     // Include the name, location.lat, and location.lng in the submission.
-    addFormdata(name,email,phoneNumber,message,address,city,district,state,pincode,ImgUrl);
+    
+   
+    addFormdata(name,email,phoneNumber,message,address,city,district,state,pincode,ImgUrl,pothole);
     // // Reset the form after submission
     // console.log("Name:", name);
     // console.log("Email:", email);
@@ -73,7 +77,8 @@ function ImageUploadForm() {
     setState('');
     setPincode('');
     setImgUrl('');
-    
+    setImage(null);
+    setpothole('');
     // setImage(null);
     // setName('');
     // setLocation({ lat: 0, lng: 0 });
@@ -120,6 +125,15 @@ function ImageUploadForm() {
             <img src={URL.createObjectURL(image)} alt="Selected" width="200" />
           </div>
         )}
+        <div>
+          <label htmlFor="name">Number of pothole:</label>
+          <input
+            type="text"
+            id="name"
+            value={pothole}
+            onChange={(e) => setpothole(e.target.value)}
+          />
+        </div>
 
 <div>
           <label htmlFor="name">Name:</label>
@@ -209,7 +223,7 @@ function ImageUploadForm() {
           />
         </div>
 
-        <div>
+        {/* <div>
           <label htmlFor="location">Location:</label>
           <input
             type="text"
@@ -223,7 +237,7 @@ function ImageUploadForm() {
           >
             Choose on Map
           </button>
-        </div>
+        </div> */}
 
         {/* {showMap && (
           <MapComponent
