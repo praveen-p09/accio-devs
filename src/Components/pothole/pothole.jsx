@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from "react-router-dom";
 import {getCoordinate } from '../../utilities/Firebase'
 import Navbar from '../Navbar/navbar';
+import CommentCard from '../Comments/comments';
 import './pothole.css';
 const ProgressBarWithSteps = ({ steps, currentStep }) => {
   const stepWidth = (100 / (steps.length - 1)) * currentStep;
@@ -68,6 +69,8 @@ const [holedetail, setholedetail] = useState();
         </div>
       </div>)}
       </div>
+      <h1>Comments by Experts</h1>
+      <CommentCard/>
     </>
   )
 }
