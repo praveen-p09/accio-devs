@@ -6,7 +6,6 @@ import {
   Routes,
 } from "react-router-dom";
 import Addlocation from './Components/Addlocation'
-import Main from './page/Main'
 import MapContainer from '../src/page/mainMap/Map';
 import ImageUploadForm from './Components/ComplaintForm/form';
 import Pothole from './Components/pothole/pothole';
