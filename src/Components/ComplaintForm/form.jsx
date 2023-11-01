@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Navbar from '../Navbar/navbar';
 import { imageDb } from '../../utilities/Firebase'
 import { getDownloadURL, listAll, ref, uploadBytes } from "firebase/storage";
 import { v4 } from "uuid";
@@ -107,8 +106,6 @@ function ImageUploadForm() {
   // });
   
   return (
-    <>
-    <Navbar/>
     <div className="form-container">
       <h2>Upload details about potholes</h2>
       <form onSubmit={handleSubmit}>
@@ -257,7 +254,6 @@ function ImageUploadForm() {
         <button type="submit">Submit</button>
       </form>
     </div>
-    </>
   );
 }
 

@@ -1,11 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from "react-router-dom";
 import {getCoordinate } from '../../utilities/Firebase'
-import Navbar from '../Navbar/navbar';
 import './pothole.css';
-const ProgressBarWithSteps = ({ steps, currentStep }) => {
-  const stepWidth = (100 / (steps.length - 1)) * currentStep;
-}
 const Pothole = () => {
   const postId = useParams();
   // console.log(postId)
@@ -36,7 +32,6 @@ const [holedetail, setholedetail] = useState();
 
   return (
     <>
-      <Navbar/>
       <div className="pothole">
       
       {holedetail && (
@@ -45,11 +40,10 @@ const [holedetail, setholedetail] = useState();
          <h1>Pothole -{holedetail.id}</h1>
          <div className='flexr'>
         <div className='bg3d wrapper'>
-
           <img src="https://t3.ftcdn.net/jpg/03/60/90/92/360_F_360909266_3mWP6FZZOQMG5aRUozFYPKjPm6FK4nUx.jpg" alt="bg-scale" />
           <model-viewer id="reveal" loading="eager" src={`../../${holedetail.glbname}.glb`} alt="A 3D model of an item" camera-controls></model-viewer>
         </div>
-        <div  className="details">
+        <div className="details">
           <h3>Details</h3>
           <p>Coordinates : {holedetail.longi}, {holedetail.lati}</p>
           <p>Depth:{holedetail.depth}</p>
@@ -67,6 +61,11 @@ const [holedetail, setholedetail] = useState();
         </div>
         </div>
       </div>)}
+
+
+      <div className='tracking '>
+        <h1> Progress Tracking </h1>
+      </div>
       </div>
     </>
   )
