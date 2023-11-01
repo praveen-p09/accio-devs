@@ -6,12 +6,13 @@ import {
   Routes,
 } from "react-router-dom";
 import Addlocation from './Components/Addlocation'
-import MapContainer from '../src/page/mainMap/Map';
+import Home from '../src/Components/Home/Home';
 import ImageUploadForm from './Components/ComplaintForm/form';
 import Pothole from './Components/pothole/pothole';
 import IframeComponent from './Components/stream/stream';
 import TabularData from './Components/ComplaintData/dataTable';
-
+import MapContainer from '../src/page/mainMap/Map';
+import Progress from './Components/progress/progress';
 function App() {
 
 
@@ -21,12 +22,13 @@ function App() {
      
             <Routes>
               <Route exact path="/test" element={ <Addlocation/> } />
-              <Route exact path="/" element={  <MapContainer/>  } />
+              <Route exact path="/" element={  <Home/>  } />
               <Route path="/form" element={<ImageUploadForm/>} />
               <Route path="/pothole/:holeID" element={<Pothole/>} />
               <Route path="/stream" element={<IframeComponent/>} />
               <Route path="/formdisplay" element={<TabularData/>} />
-             
+              <Route path="/map" element={<MapContainer/>} />
+              <Route path="/progress/:holeID" element={<Progress/>} />
             </Routes>
           
         </Router>
