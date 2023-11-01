@@ -67,3 +67,10 @@ export const addFormdata = async (name,email,phoneNumber,message,address,city,di
     date: new Date().toJSON().slice(0, 10).replace(/-/g, "/"),
   });
 };
+
+export const getFormdata = async () => {
+  const data = await getDocs(form);
+  return data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+};
+
+//now comes something else
