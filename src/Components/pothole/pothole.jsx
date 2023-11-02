@@ -37,7 +37,7 @@ const [holedetail, setholedetail] = useState();
 
   return (
     <>
-      <Navbar/>
+      
       <div className="pothole">
       
       {holedetail && (
@@ -48,14 +48,14 @@ const [holedetail, setholedetail] = useState();
         <div className='bg3d wrapper'>
 
           <img src="https://t3.ftcdn.net/jpg/03/60/90/92/360_F_360909266_3mWP6FZZOQMG5aRUozFYPKjPm6FK4nUx.jpg" alt="bg-scale" />
-          <model-viewer id="reveal" loading="eager" src={`../../${holedetail.glbname}.glb`} alt="A 3D model of an item" camera-controls></model-viewer>
+          <model-viewer id="reveal" loading="eager" src={`../../model.glb`} alt="A 3D model of an item" camera-controls></model-viewer>
         </div>
         <div  className="details">
           <h3>Details</h3>
-          <p>Coordinates : {holedetail.longi}, {holedetail.lati}</p>
-          <p>Depth:{holedetail.depth}</p>
-          <p>Diameter :{holedetail.diameter}cm</p>
-          <p>Severity :{holedetail.severity}</p>
+          <p>Coordinates : {holedetail.longitude}, {holedetail.latitude}</p>
+          <p>Area:{holedetail.area} cm square</p>
+          <p>Volume :{holedetail.volume} cm cube</p>
+          <p>Severity :High</p>
           <p>Material : Asphalt concrete</p>
           <p>Suggestion : </p>
           <ul>
@@ -71,6 +71,8 @@ const [holedetail, setholedetail] = useState();
       </div>
       <h1>Comments by Experts</h1>
       <CommentCard/>
+      
+      
     </>
   )
 }

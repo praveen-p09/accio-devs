@@ -108,7 +108,7 @@ function ImageUploadForm() {
   
   return (
     <>
-    <Navbar/>
+    
     <div className="form-container">
       <h2>Upload details about potholes</h2>
       <form onSubmit={handleSubmit}>

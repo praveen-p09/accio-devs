@@ -47,7 +47,7 @@ export default function MapComponent() {
             const marker = new mapboxgl.Marker({
                 color: "#ff7e6b",
             })
-            .setLngLat([location.longi, location.lati])
+            .setLngLat([ location.latitude,location.longitude,])
             .addTo(map)
             marker.getElement().addEventListener('click', function() {
                         alert('Marker was clicked!');

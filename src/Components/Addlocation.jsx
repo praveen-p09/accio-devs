@@ -64,10 +64,10 @@ const Addlocation = () => {
                     return (
                         <div>
                             <div>
-                                latitude={ location.lati };
+                                latitude={ location.latitude };
                             </div>
                             <div>
-                                longitude={ location.longi };
+                                longitude={ location.longitude };
                             </div>
                         </div>
                     )

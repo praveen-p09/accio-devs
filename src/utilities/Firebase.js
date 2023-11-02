@@ -42,6 +42,7 @@ export const signUserAccountOut = () => signOut(auth);
 export const db=getFirestore(app);
 
 const location = collection(db, "locations");
+const Afterprocess = collection(db, "AfterProcess");
 
 
 // Add location to firestore database
@@ -55,7 +56,7 @@ export const addLocationtoDb = async (lati,longi) => {
 
   // Get coordinate from firestore database
 export const getCoordinate = async () => {
-    const data = await getDocs(location);
+    const data = await getDocs(Afterprocess);
     return data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
   };
 
