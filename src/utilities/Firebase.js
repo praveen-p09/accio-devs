@@ -5,6 +5,7 @@ import {
     getAuth,
     GoogleAuthProvider,
     signInWithRedirect,
+    signInWithPopup,
     signOut,
   } from "firebase/auth";
   
@@ -34,7 +35,7 @@ export const imageDb = getStorage(app)
 const googleProvider = new GoogleAuthProvider();
 // Sign in and sign out functions
 export const signInWithGoogleRedirect = () =>
-signInWithRedirect(auth, googleProvider);
+signInWithPopup(auth, googleProvider);
 
 export const signUserAccountOut = () => signOut(auth);
 
