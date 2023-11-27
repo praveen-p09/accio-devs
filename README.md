@@ -1,8 +1,6 @@
-# React + Vite
+A realtime pothole detection system
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+https://github.com/ayushshukla011/accio-devs/assets/116294361/906d830f-cee8-43de-bc29-ffdf429c026b
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
