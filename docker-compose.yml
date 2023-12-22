@@ -6,22 +6,19 @@ services:
       - "4000:4000"
     volumes:
       - ./backend:/backend
-    command: bash -c "apt update && apt install -y libsm6 libxext6 &&
-apt-get install -y libxrender-dev && 
-pip install -r requirements.txt &&
-                      python main.py"
+    command: bash -c "apt update && apt install -y libsm6 libxext6 libgl1-mesa-dev libglib2.0-0 && apt-get install -y libxrender-dev && pip install -r requirements.txt &&  python main.py"
 
   frontend:
     restart: always
     build: ./frontend
     ports:
-      - "3000:3000"
+      - "5173:5173"
     volumes:
       - "./frontend:/frontend"
       - "/frontend/node_modules"
     command: > 
       bash -c "cp -rfu /temp/node_modules/. /frontend/node_modules/  
-      && npm start"
+      && npm run dev"
     depends_on:
       - backend
     environment:
