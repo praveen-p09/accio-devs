@@ -31,7 +31,7 @@ prefs = {"download.default_directory": "D:\\3DModels"}
 options.add_experimental_option("prefs", prefs)
 
 # Load MiDaS Model
-model = torch.hub.load("intel-isl/MiDaS", "MiDaS_small").cuda().eval()
+model = torch.hub.load("intel-isl/MiDaS", "MiDaS_small").eval()
 
 k = 0
 # volume estimation and 3d model uploading image taking api
@@ -46,13 +46,13 @@ def find_volume(image, pixel_depth_short, pixel_depth_long, depth_nearest=2):
         T.ToTensor(),  # Convert PIL image to PyTorch tensor
         T.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])  # Normalize image
     ])
-    input_tensor = transform(input_image).unsqueeze(0).cuda()  # Add batch dimension and move to GPU
+    input_tensor = transform(input_image).unsqueeze(0) # Add batch dimension and move to GPU
     # Perform Depth Estimation
     with torch.no_grad():
         prediction = model(input_tensor)
 
     # Denormalize Depth Map
-    depth_map_normalized = prediction.squeeze().cpu().numpy()
+    depth_map_normalized = prediction.squeeze().numpy()
     depth_map_normalized = (depth_map_normalized - depth_map_normalized.min()) / (
             depth_map_normalized.max() - depth_map_normalized.min())
     depth_map_normalized = depth_nearest * (1 + depth_map_normalized)
