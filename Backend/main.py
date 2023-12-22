@@ -10,10 +10,7 @@ streamer = Flask(__name__)
 db = firestore.client()
 # Reference to the Firebase Storage bucket
 bucket = storage.bucket()
-cred = credentials.Certificate("serviceAccount.json")
-firebase_admin.initialize_app(cred, {
-    'storageBucket': 'accio-2f266.appspot.com'  # Replace with your Firebase Storage bucket
-})
+
 
 @streamer.route('/')
 def index():
@@ -46,6 +43,6 @@ if __name__ == '__main__':
     upload.start()
     upload.join()
     runner.join()
-    streamer.run(localhost='0.0.0.0',port=4000)
+    streamer.run(host='0.0.0.0',port=4000)
     process = processer()
     process.run()

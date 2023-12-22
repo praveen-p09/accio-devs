@@ -17,7 +17,6 @@ import cv2
 import firebase_admin
 from firebase_admin import credentials, storage, firestore
 
-# Initialize Firebase with your JSON configuration file
 cred = credentials.Certificate("serviceAccount.json")
 firebase_admin.initialize_app(cred, {
     'storageBucket': 'accio-2f266.appspot.com'  # Replace with your Firebase Storage bucket
