@@ -6,7 +6,11 @@ services:
       - "4000:4000"
     volumes:
       - ./backend:/backend
-    command: bash -c "apt update && apt install -y libsm6 libxext6 libgl1-mesa-dev libglib2.0-0 && apt-get install -y libxrender-dev && pip install -r requirements.txt &&  python main.py"
+
+   
+
+   command: bash -c "apt update && apt install -y libsm6 libxext6 libgl1-mesa-dev libglib2.0-0 && apt-get install -y libxrender-dev && pip install -r requirements.txt &&  python main.py"
+
 
   frontend:
     restart: always
@@ -22,4 +26,5 @@ services:
     depends_on:
       - backend
     environment:
-      - WATCHPACK_POLLING=true
+      - WATCHPACK_POLLING=tru
+       
