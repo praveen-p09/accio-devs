@@ -2,6 +2,10 @@ import cv2
 from ultralytics import YOLO
 import torch
 def generate_frames():
+    """
+    The function `generate_frames` captures frames from a video stream, performs object detection using
+    YOLO model, and yields the processed frames as JPEG images.
+    """
     url = 'http://192.168.137.206:8080/video'
     cap = cv2.VideoCapture(url)
     # print(torch.cuda.is_available())
@@ -50,5 +54,5 @@ def generate_frames():
             _, buffer = cv2.imencode('.jpg', frame)
             frame_bytes = buffer.tobytes()
             yield (b'--frame\r\n'
-                   b'Content-Type: image/jpeg\r\n\r\n' + frame_bytes + b'\r\n')
+            b'Content-Type: image/jpeg\r\n\r\n' + frame_bytes + b'\r\n')
 
