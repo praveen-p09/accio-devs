@@ -17,6 +17,10 @@ import cv2
 import firebase_admin
 from firebase_admin import credentials, storage, firestore
 
+# The code block initializes the Firebase Admin SDK with the provided service account credentials
+# (`serviceAccount.json`). It also specifies the storage bucket to be used for Firebase Storage. The
+# `bucket` variable is then assigned the reference to the Firebase Storage bucket. The `db` variable
+# is assigned the reference to the Firestore database.
 cred = credentials.Certificate("serviceAccount.json")
 firebase_admin.initialize_app(cred, {
     'storageBucket': 'accio-2f266.appspot.com'  # Replace with your Firebase Storage bucket
@@ -25,16 +29,29 @@ firebase_admin.initialize_app(cred, {
 bucket = storage.bucket()
 db= firestore.client()
 
-options = webdriver.ChromeOptions()
-prefs = {"download.default_directory": "D:\\3DModels"}
-options.add_experimental_option("prefs", prefs)
-
 # Load MiDaS Model
+# The line `model = torch.hub.load("intel-isl/MiDaS", "MiDaS_small").eval()` is loading the MiDaS
+# (Monocular Depth Estimation) model from the Intel-isl GitHub repository using the Torch Hub.
 model = torch.hub.load("intel-isl/MiDaS", "MiDaS_small").eval()
 
 k = 0
 # volume estimation and 3d model uploading image taking api
 def find_volume(image, pixel_depth_short, pixel_depth_long, depth_nearest=2):
+    """
+    The function `find_volume` takes an input image, pixel depths, and a depth nearest value, and
+    returns the volume calculated based on the depth estimation of the image.
+    
+    :param image: The path to the input image that you want to estimate the volume of
+    :param pixel_depth_short: The parameter "pixel_depth_short" represents the depth (in millimeters) of
+    each pixel in the short dimension of the image. It is used to calculate the volume of the object in
+    the image
+    :param pixel_depth_long: The parameter "pixel_depth_long" represents the depth (in millimeters) of
+    each pixel along the longer dimension of the image
+    :param depth_nearest: The parameter "depth_nearest" is the depth value assigned to the nearest
+    objects in the depth map. It is used to calculate the volume of the objects in the image, defaults
+    to 2 (optional)
+    :return: the volume calculated based on the depth estimation of the input image.
+    """
     # Load and Preprocess Input Image  # Replace with the path to your input image
     input_image = Image.open(image).convert("RGB")
     im = cv2.imread(image)
@@ -63,6 +80,17 @@ def find_volume(image, pixel_depth_short, pixel_depth_long, depth_nearest=2):
 
 
 def three_dimensional_model(image,location):
+    """
+    The `three_dimensional_model` function downloads a 3D model from a website given an image and a
+    location, and returns the path to the downloaded model.
+    
+    :param image: The `image` parameter is the file path of the image that you want to use for the
+    three-dimensional model. It should be a valid image file (e.g., JPEG, PNG, etc.)
+    :param location: The `location` parameter is the location where you want to save the downloaded 3D
+    model. It is used to create a folder with the specified location name inside the "models" directory.
+    The downloaded model will be saved in this folder
+    :return: the file path of the downloaded 3D model in the GLB format.
+    """
     download_path = os.path.join(os.getcwd(),f'models',f'{location}')
     options = webdriver.ChromeOptions()
     prefs = {"download.default_directory": download_path}
@@ -141,6 +169,9 @@ def three_dimensional_model(image,location):
 
 
 
+# The `processer` class is responsible for continuously checking a folder in Firebase Storage for
+# images, downloading them, processing them to calculate area and volume, generating a 3D model, and
+# uploading the processed data to a Firestore collection.
 class processer():
     def __int__(self):
         os.mkdir("predict",exist_ok=True)
