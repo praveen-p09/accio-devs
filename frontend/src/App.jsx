@@ -13,6 +13,7 @@ import VideoContainer from './Components/stream/stream';
 import TabularData from './Components/ComplaintData/dataTable';
 import MapContainer from '../src/page/mainMap/Map';
 import Navbar from './Components/Navbar/navbar';
+import Uploadvideo from './Components/Uploadvideo/Uploadvideo';
 function App() {
 
 
@@ -28,6 +29,7 @@ function App() {
               <Route path="/stream" element={<VideoContainer/>} />
               <Route path="/formdisplay" element={<TabularData/>} />
               <Route path="/map" element={<MapContainer/>} />
+              <Route path="/uploadvideo" element={<Uploadvideo/>} />
               
             </Routes>
           
