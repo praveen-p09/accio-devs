@@ -6,15 +6,17 @@ from Processor_backend import processer
 import firebase_admin
 from firebase_admin import credentials, storage, firestore
 
-# `streamer = Flask(__name__)` creates a Flask application instance called `streamer`. Flask is a web
-# framework for Python that allows you to build web applications. `__name__` is a special variable in
-# Python that represents the name of the current module. By passing `__name__` as an argument to
-# `Flask`, it tells Flask to use the current module as the starting point for the application.
+# streamer = Flask(__name__) creates a Flask application instance called streamer. Flask is a web
+# framework for Python that allows you to build web applications. __name__ is a special variable in
+# Python that represents the name of the current module. By passing __name__ as an argument to
+# Flask, it tells Flask to use the current module as the starting point for the application.
 streamer = Flask(__name__)
 db = firestore.client()
 # Reference to the Firebase Storage bucket
 bucket = storage.bucket()
 
+path_images = os.path.join(os.getcwd(), 'images')
+os.makedirs(path_images, exist_ok=True)
 
 @streamer.route('/')
 def index():
@@ -26,14 +28,14 @@ def index():
 
 def upload_images():
     """
-    The function `upload_images` uploads images from a local directory to Firebase Storage, and also
+    The function upload_images uploads images from a local directory to Firebase Storage, and also
     adds corresponding data to a Firestore database.
     """
     m=0
     while True:
-        images = os.listdir('images')
+        images = os.listdir(path_images)
         for path in images:
-            image_path = os.path.join("images",path)
+            image_path = os.path.join(path_images,path)
             # Local path to the image you want to upload
             local_image_path = image_path
             # Path in Firebase Storage where you want to store the image
@@ -49,15 +51,17 @@ def upload_images():
             m+=1
 
 if __name__ == '__main__':
-    # The code snippet is creating two threads, `runner` and `upload`, and starting them using the
-    # `start()` method.
+    # The code snippet is creating two threads, runner and upload, and starting them using the
+    # start() method.
     runner = Thread(target=generate_frames)
     upload = Thread(target=upload_images)
 
     runner.start()
     upload.start()
+    process = processer()
+    processing = Thread(target=process.run)
+    processing.start()
+    streamer.run(host='0.0.0.0',port=4000)
     upload.join()
     runner.join()
-    streamer.run(host='0.0.0.0',port=4000)
-    process = processer()
-    process.run()
+    processing.join()
