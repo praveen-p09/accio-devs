@@ -1,8 +1,12 @@
-import React,{useState} from 'react'
+import React, { useState } from 'react';
 import './Uploadvideo.css';
+
 const Uploadvideo = () => {
   const [selectedVideo, setSelectedVideo] = useState(null);
   const [videoPreview, setVideoPreview] = useState(null);
+  const [logi, setlogi] = useState("0");
+  const [lati, setlati] = useState("0");
+  const [videoUrl, setVideoUrl] = useState("");
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
@@ -15,55 +19,72 @@ const Uploadvideo = () => {
       setVideoPreview(previewURL);
     }
   };
-  const handlesubmit= async()=>{
+
+  const latichange = (e) => {
+    e.preventDefault();
+    setlati(e.target.value);
+  };
+
+  const longichange = (e) => {
+    e.preventDefault();
+    setlogi(e.target.value);
+  };
+
+  const urlChange = (e) => {
+    e.preventDefault();
+    setVideoUrl(e.target.value);
+  };
+
+  const handlesubmit = async (e) => {
+    e.preventDefault();
+
+    // Check if either the video file or the video URL is filled
+    if (!(selectedVideo || videoUrl)) {
+      alert('Please select a video file or enter a video URL.');
+      return;
+    }
+
+    // Continue with the submission logic
+    console.log('Longitude:', logi);
+    console.log('Latitude:', lati);
+    console.log('Video File:', selectedVideo);
+    console.log('Video URL:', videoUrl);
+
+    // Upload video and additional data
     const formData = new FormData();
     formData.append('video', selectedVideo);
     formData.append('lati', lati);
     formData.append('logi', logi);
-  
+
     const options = {
       method: 'POST',
       body: formData,
     };
-  
+
     try {
       const res = await fetch('http://localhost:4000/uploadvideo', options);
       const data = await res.json();
       console.log(data);
+
+      // Redirect to localhost:5173/stream after successful submission
+      window.location.href = 'http://localhost:5173/stream';
     } catch (error) {
       console.error('Error uploading video:', error);
     }
-  }
-  const [logi, setlogi] = useState("0");
-  const [lati, setlati] = useState("0");
-
-  const latichange=(e)=>{
-    e.preventDefault();
-    setlati(e.target.value);
-    console.log(lati);
-  }
-  const longichange=(e)=>{
-    e.preventDefault();
-    setlogi(e.target.value);
-    console.log(logi);
-  }
-  console.log(logi, lati);
-  
-
+  };
 
   return (
     <div className='outer'>
-
       <h1>Video Uploader</h1>
-      <form className='form' method='POST' onSubmit={handlesubmit}>
-         <label>Enter  Longitude : </label>
-         <input type="text" value={logi} name='longi' onChange={longichange} required/>
-         <label>Enter  Latitude : </label>
-         <input type="text" value={lati} name='lati' onChange={latichange} required/>
-         <input type="file" accept="video/*" onChange={handleFileChange} required/>
-         <label>Enter URL of video : </label>
-         <input type="url" name='url' placeholder='URL' required/>
-         <button type="submit" >Submit</button>
+      <form className='form' onSubmit={handlesubmit}>
+        <label>Enter Longitude: </label>
+        <input type="text" value={logi} name='longi' onChange={longichange} required />
+        <label>Enter Latitude: </label>
+        <input type="text" value={lati} name='lati' onChange={latichange} required />
+        <input type="file" accept="video/*" onChange={handleFileChange} />
+        <label>Enter URL of video: </label>
+        <input type="url" name='url' value={videoUrl} onChange={urlChange} placeholder='URL' />
+        <button type="submit">Submit</button>
       </form>
 
       {selectedVideo && (
@@ -87,4 +108,4 @@ const Uploadvideo = () => {
   );
 };
 
-export default Uploadvideo
+export default Uploadvideo;
