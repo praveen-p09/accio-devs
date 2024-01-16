@@ -27,5 +27,5 @@ services:
     depends_on:
       - backend
     environment:
-      - WATCHPACK_POLLING=tru
+      - WATCHPACK_POLLING=true
        

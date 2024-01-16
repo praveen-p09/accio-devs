@@ -7,5 +7,4 @@ WORKDIR /backend
 # copy from the current directory of the Dockerfile to /backend in the image
 COPY . .
 
-RUN pip install -r requirements.txt
-
+RUN pip install --upgrade pip && pip install -r requirements.txt

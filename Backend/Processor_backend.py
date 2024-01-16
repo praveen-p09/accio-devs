@@ -21,7 +21,8 @@ from firebase_admin import credentials, storage, firestore
 # (`serviceAccount.json`). It also specifies the storage bucket to be used for Firebase Storage. The
 # `bucket` variable is then assigned the reference to the Firebase Storage bucket. The `db` variable
 # is assigned the reference to the Firestore database.
-cred = credentials.Certificate("serviceAccount.json")
+cred_location = os.path.join("Backend","serviceAccount.json")
+cred = credentials.Certificate(cred_location)
 firebase_admin.initialize_app(cred, {
     'storageBucket': 'accio-2f266.appspot.com'  # Replace with your Firebase Storage bucket
 })
@@ -174,27 +175,26 @@ def three_dimensional_model(image,location):
 # uploading the processed data to a Firestore collection.
 class processer():
     def __int__(self):
-        os.mkdir("predict",exist_ok=True)
-        os.mkdir("models", exist_ok=True)
+        os.mkdir(f"{os.getcwd()}/predict",exist_ok=True)
+        os.mkdir(f"{os.getcwd()}/models", exist_ok=True)
     def run(self):
         while (True):
             # Path in Firebase Storage where you want to store the image
             # Path to the folder you want to check
-            folder_path = "images"  
+            folder_path = f"{os.getcwd()}/images"  
 
             # List the contents of the folder
             blobs = list(bucket.list_blobs(prefix=folder_path))
 
             if not blobs:
                 continue
-            folder_path = "images"  
             # List all the files in the folder
             blobs = bucket.list_blobs(prefix=folder_path)
 
             # Iterate through the list of blobs and print their names
             for blob in blobs:
                 firebase_storage_path = blob.name
-                image_path = "predict/pothole.jpg"
+                image_path = f"{os.getcwd()}/predict/pothole.jpg"
 
                 # image pull and read
                 blob = bucket.blob(firebase_storage_path)
