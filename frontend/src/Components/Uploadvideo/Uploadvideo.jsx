@@ -15,6 +15,25 @@ const Uploadvideo = () => {
       setVideoPreview(previewURL);
     }
   };
+  const handlesubmit= async()=>{
+    const formData = new FormData();
+    formData.append('video', selectedVideo);
+    formData.append('lati', lati);
+    formData.append('logi', logi);
+  
+    const options = {
+      method: 'POST',
+      body: formData,
+    };
+  
+    try {
+      const res = await fetch('http://localhost:4000/uploadvideo', options);
+      const data = await res.json();
+      console.log(data);
+    } catch (error) {
+      console.error('Error uploading video:', error);
+    }
+  }
   const [logi, setlogi] = useState("0");
   const [lati, setlati] = useState("0");
 
@@ -29,13 +48,14 @@ const Uploadvideo = () => {
     console.log(logi);
   }
   console.log(logi, lati);
+  
 
 
   return (
     <div className='outer'>
 
       <h1>Video Uploader</h1>
-      <form className='form' method='POST'>
+      <form className='form' method='POST' onSubmit={handlesubmit}>
          <label>Enter  Longitude : </label>
          <input type="text" value={logi} name='longi' onChange={longichange} required/>
          <label>Enter  Latitude : </label>
