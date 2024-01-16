@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-
+import './Uploadvideo.css';
 const Uploadvideo = () => {
   const [selectedVideo, setSelectedVideo] = useState(null);
   const [videoPreview, setVideoPreview] = useState(null);
@@ -32,15 +32,19 @@ const Uploadvideo = () => {
 
 
   return (
-    <div>
+    <div className='outer'>
 
       <h1>Video Uploader</h1>
-      <form action="">
-         <div> Enter  Longitude : <input type="text" value={logi} name='longi' onChange={longichange}/></div> 
-         <div> Enter  Latitude : <input type="text" value={lati} name='lati' onChange={latichange}/></div> 
-        </form>
-
-      <input type="file" accept="video/*" onChange={handleFileChange} />
+      <form className='form' method='POST'>
+         <label>Enter  Longitude : </label>
+         <input type="text" value={logi} name='longi' onChange={longichange} required/>
+         <label>Enter  Latitude : </label>
+         <input type="text" value={lati} name='lati' onChange={latichange} required/>
+         <input type="file" accept="video/*" onChange={handleFileChange} required/>
+         <label>Enter URL of video : </label>
+         <input type="url" name='url' placeholder='URL' required/>
+         <button type="submit" >Submit</button>
+      </form>
 
       {selectedVideo && (
         <div>

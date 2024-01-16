@@ -1,7 +1,7 @@
 // import React from 'react';
 // import './stream.css';
 
-import React,{ Component }  from 'react';
+import React,{ useState }  from 'react';
 
 class VideoContainer extends React.Component {
   constructor(props) {
@@ -32,15 +32,18 @@ class VideoContainer extends React.Component {
       width: '100vw',
       height: '100vh',
     };
-
+  
     return (
       <div>
       <div style={containerStyle}>
          <h1>Stream</h1>
          <form action="">
-         <div> Enter your IpAddress : <input type="text" value={this.state.ipAddress} onChange={this.change}/></div> 
-        </form>
-        <iframe
+         <div> Enter your IpAddress : <input type="text" name='ip' required/></div>
+         <div>Enter  Longitude : <input type="text" name='longi' required/></div>
+         <div>Enter  Latitude : <input type="text" name='lati' required/></div>
+         <div><button type="submit">Submit</button></div>
+         </form>
+         <iframe
           title="Embedded Video"
           src={this.state.ipAddress} // Replace with your actual URL
           frameBorder="0"
