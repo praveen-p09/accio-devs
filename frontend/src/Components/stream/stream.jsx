@@ -7,7 +7,7 @@ class VideoContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      ipAddress: "http://192.168.137.3:4000",
+      ipAddress: "http://localhost:4000/uploadvideo",
     };
   }
    change=(e)=>{
