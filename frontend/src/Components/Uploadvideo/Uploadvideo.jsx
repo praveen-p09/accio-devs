@@ -80,6 +80,38 @@ const Uploadvideo = () => {
     } catch (error) {
       console.error('Error uploading video:', error);
     }
+
+    location.reload();
+  };
+
+  const stopStream = async (e) => {
+    e.preventDefault();
+    const apiUrl = 'http://localhost:4000/stop_stream';
+    
+    try {
+      const response = await fetch(apiUrl);
+  
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+  
+      const data = await response.json();
+      console.log(data);
+    } catch (error) {
+      console.error('There was a problem with the fetch operation:', error);
+    }
+  }
+
+  const containerStyle = {
+    width: '100vw',  // Set the width to 25% of the viewport width
+    height: '100vh', // Set the height to 25% of the viewport width (maintaining a 1:1 aspect ratio)
+    border: '1px solid #ccc',
+    // overflow: 'hidden', // Hide any content overflow
+  };
+
+  const iframeStyle = {
+    width: '100vw',
+    height: '100vh',
   };
 
   return (
@@ -94,8 +126,9 @@ const Uploadvideo = () => {
         <label>Enter URL of video: </label>
         <input type="url" name='url' value={videoUrl} onChange={urlChange} placeholder='URL' />
         <button type="submit">Submit</button>
+        <button onClick={stopStream}>Stop Stream</button>
       </form>
-
+      
       {selectedVideo && (
         <div>
           <h2>Selected Video</h2>
@@ -113,6 +146,16 @@ const Uploadvideo = () => {
           )}
         </div>
       )}
+
+<div style={containerStyle}>
+<iframe
+          title="Embedded Video"
+          src="http://localhost:4000/uploadvideo" // Replace with your actual URL
+          frameBorder="0"
+          style={iframeStyle}
+          allowFullScreen
+        ></iframe>
+        </div>
     </div>
   );
 };

@@ -9,9 +9,8 @@ def save_video_bytes(video_bytes, filename):
 
 class streaming():
     def __init__(self):
-        self.video_data = None
-        self.stream = None
-        self.thread = None
+        # The code snippet initializes several instance variables for the `streaming` class. Here's a
+        # breakdown of each variable:
         self.m = 0
         self.cap = None
         self.long = None
@@ -67,6 +66,7 @@ class streaming():
                                         cv2.imwrite(f"images/image{self.m}.jpg", frame[int(y1) - 20:int(y2) + 20, int(x1) - 20:int(x2) + 20])
                                         with open(f"image{self.m}.txt",'w') as f:
                                             f.write(f"{self.long} {self.lati}")
+                                            print("Hello")
                                         is_saved = True
                                         self.m += 1
                                         
@@ -83,6 +83,18 @@ class streaming():
                     frame_bytes = buffer.tobytes()
                     yield (b'--frame\r\n'
                     b'Content-Type: image/jpeg\r\n\r\n' + frame_bytes + b'\r\n')
+                else:
+                    try:
+                        os.remove(self.path_video)
+                        print(f"Video removed successfully: {self.path_video}")
+                    except (FileNotFoundError, PermissionError, OSError) as e:  # Catch specific common errors
+                        print(f"Error: {e}")
+                    except Exception as e:  # Catch all other unexpected errors
+                        print(f"An unexpected error occurred: {e}")
+                    self.cap.release()
+                    self.cap = None
+                    self.lati = None
+                    self.long = None
             else:
                 return "Failed"
 
