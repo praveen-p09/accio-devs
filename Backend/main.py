@@ -17,18 +17,29 @@ streamer = Flask(__name__)
 initial = os.getcwd()
 if not os.path.exists(f"{initial}/location"):
     os.mkdir(f"{initial}/location")
+    
+stream = streaming()
 
 @streamer.route('/uploadvideo',methods = ['POST','GET'])
 def start_stream():
-    stream = streaming()
     if(request.method == 'POST'):
         video_data = request.files['video'].read()
         long = request.form['logi']
         lati = request.form['lati']
         stream.set_data(video_data,long,lati)
-    stream = Response(stream.generate_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')
-    thread = Thread(target=stream.start)
-    thread.start()
+    if(stream.cap!= None and stream.cap.isOpened()):
+        return Response(stream.generate_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')
+    else: return Response("Error opening video stream", status=500)
+    
+@streamer.route('/stop_stream')
+def stop_stream():
+    os.remove(stream.path_video)
+    stream.cap.release()
+    stream.cap = None
+    stream.lati = None
+    stream.long = None
+    
+    return Response("Stream Ended", status=200)
     
 def run_app():
     streamer.run(host='0.0.0.0',port=4000)

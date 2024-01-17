@@ -36,6 +36,18 @@ def upload_images(db,bucket):
                 blob = bucket.blob(firebase_storage_path)
                 blob.upload_from_filename(image_path)
                 print(f"Image uploaded to Firebase Storage: {firebase_storage_path}")
-                os.remove(image_path)
-                os.remove(local_location_path)
+                try:
+                        os.remove(image_path)
+                        print(f"Video removed successfully: {image_path}")
+                except (FileNotFoundError, PermissionError, OSError) as e:  # Catch specific common errors
+                        print(f"Error: {e}")
+                except Exception as e:  # Catch all other unexpected errors
+                        print(f"An unexpected error occurred: {e}")
+                try:
+                        os.remove(local_location_path)
+                        print(f"Video removed successfully: {os.remove(local_location_path)}")
+                except (FileNotFoundError, PermissionError, OSError) as e:  # Catch specific common errors
+                        print(f"Error: {e}")
+                except Exception as e:  # Catch all other unexpected errors
+                        print(f"An unexpected error occurred: {e}")
                 m+=1
