@@ -54,6 +54,7 @@ const Uploadvideo = () => {
 
     // Upload video and additional data
     const formData = new FormData();
+    formData.append('video_url', videoUrl);
     formData.append('video', selectedVideo);
     formData.append('lati', lati);
     formData.append('logi', logi);

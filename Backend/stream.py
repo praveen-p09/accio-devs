@@ -16,13 +16,20 @@ class streaming():
         self.long = None
         self.lati = None
         self.path_video = os.path.join(os.getcwd(),"video")
+        self.url = None
+        self.video_data = None
         os.makedirs(self.path_video,exist_ok=True)
         
-    def set_data(self,video_data,longi,lati):
-        filename = os.path.join(os.getcwd(),'video/saved_video.mp4')  # Choose a desired filename
-        save_video_bytes(video_data, filename)
-        self.path_video = filename
-        self.cap = cv2.VideoCapture(filename)
+    def set_data(self,longi,lati,video_data=None,video_url=None):
+        if(video_data is not None):
+            self.video_data = video_data
+            filename = os.path.join(os.getcwd(),'video/saved_video.mp4')  # Choose a desired filename
+            save_video_bytes(video_data, filename)
+            self.path_video = filename
+            self.cap = cv2.VideoCapture(filename)
+        elif(video_url is not None):
+            self.cap = cv2.VideoCapture(video_url)
+            print(video_url)
         self.long = longi
         self.lati = lati
         
@@ -66,7 +73,6 @@ class streaming():
                                         cv2.imwrite(f"images/image{self.m}.jpg", frame[int(y1) - 20:int(y2) + 20, int(x1) - 20:int(x2) + 20])
                                         with open(f"image{self.m}.txt",'w') as f:
                                             f.write(f"{self.long} {self.lati}")
-                                            print("Hello")
                                         is_saved = True
                                         self.m += 1
                                         
@@ -84,13 +90,15 @@ class streaming():
                     yield (b'--frame\r\n'
                     b'Content-Type: image/jpeg\r\n\r\n' + frame_bytes + b'\r\n')
                 else:
-                    try:
-                        os.remove(self.path_video)
-                        print(f"Video removed successfully: {self.path_video}")
-                    except (FileNotFoundError, PermissionError, OSError) as e:  # Catch specific common errors
-                        print(f"Error: {e}")
-                    except Exception as e:  # Catch all other unexpected errors
-                        print(f"An unexpected error occurred: {e}")
+                    if(self.video_data is not None):
+                        try:
+                            os.remove(self.path_video)
+                            print(f"Video removed successfully: {self.path_video}")
+                        except (FileNotFoundError, PermissionError, OSError) as e:  # Catch specific common errors
+                            print(f"Error: {e}")
+                        except Exception as e:  # Catch all other unexpected errors
+                            print(f"An unexpected error occurred: {e}")
+                        self.video_data = None
                     self.cap.release()
                     self.cap = None
                     self.lati = None

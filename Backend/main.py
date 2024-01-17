@@ -23,10 +23,12 @@ stream = streaming()
 @streamer.route('/uploadvideo',methods = ['POST','GET'])
 def start_stream():
     if(request.method == 'POST'):
-        video_data = request.files['video'].read()
+        video_data = request.files.get('video')
+        video_url = request.form.get('video_url')
+        print(video_url)
         long = request.form['logi']
         lati = request.form['lati']
-        stream.set_data(video_data,long,lati)
+        stream.set_data(long,lati,video_data=video_data,video_url=video_url)
     if(stream.cap!= None and stream.cap.isOpened()):
         return Response(stream.generate_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')
     else: return Response("Error opening video stream", status=500)
@@ -38,7 +40,6 @@ def stop_stream():
     stream.cap = None
     stream.lati = None
     stream.long = None
-    
     return Response("Stream Ended", status=200)
     
 def run_app():
