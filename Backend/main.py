@@ -18,16 +18,18 @@ initial = os.getcwd()
 if not os.path.exists(f"{initial}/location"):
     os.mkdir(f"{initial}/location")
 
-@streamer.route('/uploadvideo',methods = ['POST'])
+@streamer.route('/uploadvideo',methods = ['POST','GET'])
 def start_stream():
-    ip = request.form['ip']
-    long = request.form['longi']
-    lati = request.form['lati']
-    stream = streaming(ip)
-    stream.stream = Response(stream.generate_frames(long,lati), mimetype='multipart/x-mixed-replace; boundary=frame')
-    stream.thread = Thread(target=stream.start)
-    stream.thread.start()
-
+    stream = streaming()
+    if(request.method == 'POST'):
+        video_data = request.files['video'].read()
+        long = request.form['logi']
+        lati = request.form['lati']
+        stream.set_data(video_data,long,lati)
+    stream = Response(stream.generate_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')
+    thread = Thread(target=stream.start)
+    thread.start()
+    
 def run_app():
     streamer.run(host='0.0.0.0',port=4000)
     

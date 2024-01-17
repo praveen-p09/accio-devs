@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Uploadvideo.css';
 
 const Uploadvideo = () => {
@@ -7,6 +8,7 @@ const Uploadvideo = () => {
   const [logi, setlogi] = useState("0");
   const [lati, setlati] = useState("0");
   const [videoUrl, setVideoUrl] = useState("");
+  const navigate = useNavigate();
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
@@ -55,6 +57,11 @@ const Uploadvideo = () => {
     formData.append('video', selectedVideo);
     formData.append('lati', lati);
     formData.append('logi', logi);
+    // const formData = {
+    //   'video': videoUrl ,
+    //   'logi': logi,
+    //   'lati': lati
+    // }
 
     const options = {
       method: 'POST',
@@ -67,6 +74,8 @@ const Uploadvideo = () => {
       console.log(data);
 
       // Redirect to localhost:5173/stream after successful submission
+      navigate('http://localhost:5173/stream');
+
       window.location.href = 'http://localhost:5173/stream';
     } catch (error) {
       console.error('Error uploading video:', error);

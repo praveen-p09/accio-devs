@@ -21,7 +21,9 @@ from firebase_admin import credentials, storage, firestore
 # (`serviceAccount.json`). It also specifies the storage bucket to be used for Firebase Storage. The
 # `bucket` variable is then assigned the reference to the Firebase Storage bucket. The `db` variable
 # is assigned the reference to the Firestore database.
-cred_location = os.path.join("Backend","serviceAccount.json")
+l = os.listdir(os.getcwd())
+print(l)
+cred_location = os.path.join("serviceAccount.json")
 cred = credentials.Certificate(cred_location)
 firebase_admin.initialize_app(cred, {
     'storageBucket': 'accio-2f266.appspot.com'  # Replace with your Firebase Storage bucket
