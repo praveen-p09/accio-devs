@@ -20,6 +20,9 @@ const Navbar = () => {
           <Link to="/map" className="navbar-link">Map</Link>
         </li>
         <li className="navbar-item">
+          <Link to="/uploadvideo" className="navbar-link">Stream</Link>
+        </li>
+        <li className="navbar-item">
           <Link to="/form" className="navbar-link">Form</Link>
         </li>
       </ul>

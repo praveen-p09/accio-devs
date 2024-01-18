@@ -7,7 +7,6 @@ import Addlocation from './Components/Addlocation'
 import Home from '../src/Components/Home/Home';
 import ImageUploadForm from './Components/ComplaintForm/form';
 import Pothole from './Components/pothole/pothole';
-import VideoContainer from './Components/stream/stream';
 import TabularData from './Components/ComplaintData/dataTable';
 import MapContainer from '../src/page/mainMap/Map';
 import Navbar from './Components/Navbar/navbar';
@@ -24,7 +23,6 @@ function App() {
               <Route exact path="/" element={  <Home/>  } />
               <Route path="/form" element={<ImageUploadForm/>} />
               <Route path="/pothole/:holeID" element={<Pothole/>} />
-              <Route path="/stream" element={<VideoContainer/>} />
               <Route path="/formdisplay" element={<TabularData/>} />
               <Route path="/map" element={<MapContainer/>} />
               <Route path="/uploadvideo" element={<Uploadvideo/>} />
