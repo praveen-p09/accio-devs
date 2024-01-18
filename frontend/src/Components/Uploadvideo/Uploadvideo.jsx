@@ -8,6 +8,7 @@ const Uploadvideo = () => {
   const [logi, setlogi] = useState("0");
   const [lati, setlati] = useState("0");
   const [videoUrl, setVideoUrl] = useState("");
+  const [ipAddress, setIpAddress] = useState("http://localhost:4000/uploadvideo");
   const navigate = useNavigate();
 
   const handleFileChange = (e) => {
@@ -37,6 +38,11 @@ const Uploadvideo = () => {
     setVideoUrl(e.target.value);
   };
 
+  const handleIpChange = (e) => {
+    e.preventDefault();
+    setIpAddress(e.target.value);
+  };
+
   const handlesubmit = async (e) => {
     e.preventDefault();
 
@@ -58,11 +64,6 @@ const Uploadvideo = () => {
     formData.append('video', selectedVideo);
     formData.append('lati', lati);
     formData.append('logi', logi);
-    // const formData = {
-    //   'video': videoUrl ,
-    //   'logi': logi,
-    //   'lati': lati
-    // }
 
     const options = {
       method: 'POST',
@@ -70,14 +71,10 @@ const Uploadvideo = () => {
     };
 
     try {
-      const res = await fetch('http://localhost:4000/uploadvideo', options);
+      const res = await fetch(ipAddress, options);
       const data = await res.json();
       console.log(data);
 
-      // Redirect to localhost:5173/stream after successful submission
-      navigate('http://localhost:5173/stream');
-
-      window.location.href = 'http://localhost:5173/stream';
     } catch (error) {
       console.error('Error uploading video:', error);
     }
@@ -101,13 +98,12 @@ const Uploadvideo = () => {
     } catch (error) {
       console.error('There was a problem with the fetch operation:', error);
     }
-  }
+  };
 
   const containerStyle = {
-    width: '100vw',  // Set the width to 25% of the viewport width
-    height: '100vh', // Set the height to 25% of the viewport width (maintaining a 1:1 aspect ratio)
+    width: '100vw',
+    height: '100vh',
     border: '1px solid #ccc',
-    // overflow: 'hidden', // Hide any content overflow
   };
 
   const iframeStyle = {
@@ -123,9 +119,11 @@ const Uploadvideo = () => {
         <input type="text" value={logi} name='longi' onChange={longichange} required />
         <label>Enter Latitude: </label>
         <input type="text" value={lati} name='lati' onChange={latichange} required />
+        <label>Select Video file: </label>
         <input type="file" accept="video/*" onChange={handleFileChange} />
-        <label>Enter URL of video: </label>
-        <input type="url" name='url' value={videoUrl} onChange={urlChange} placeholder='URL' />
+        Or
+        <label> Enter your IP Address : </label>
+        <input type="text" value={ipAddress} onChange={handleIpChange} required/>
         <button type="submit">Submit</button>
         <button onClick={stopStream}>Stop Stream</button>
       </form>
@@ -148,15 +146,15 @@ const Uploadvideo = () => {
         </div>
       )}
 
-<div style={containerStyle}>
-<iframe
+      <div style={containerStyle}>
+        <iframe
           title="Embedded Video"
-          src="http://localhost:4000/uploadvideo" // Replace with your actual URL
+          src="http://localhost:4000/uploadvideo"
           frameBorder="0"
           style={iframeStyle}
           allowFullScreen
         ></iframe>
-        </div>
+      </div>
     </div>
   );
 };
