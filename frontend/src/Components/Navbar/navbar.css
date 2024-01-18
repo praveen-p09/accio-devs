@@ -2,9 +2,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #fff;
+  background-color: #ffffff3d;
   padding: 10px 20px;
+  backdrop-filter: blur(10px);
   height:2rem;
+  position:fixed;
+  width: 100%;
  }
  
  .navbar-logo img{
@@ -29,5 +32,5 @@
   padding: 15px;
  }
  .navbar-link:hover{
-  background-color: #c4c4c4;
+  background-color: orangered;
  }
