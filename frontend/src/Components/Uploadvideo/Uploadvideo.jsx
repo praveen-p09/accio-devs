@@ -8,7 +8,7 @@ const Uploadvideo = () => {
   const [logi, setlogi] = useState("0");
   const [lati, setlati] = useState("0");
   const [videoUrl, setVideoUrl] = useState("");
-  const [ipAddress, setIpAddress] = useState("http://localhost:4000/uploadvideo");
+  // const [ipAddress, setIpAddress] = useState("http://localhost:4000/uploadvideo");
   const navigate = useNavigate();
 
   const handleFileChange = (e) => {
@@ -38,17 +38,17 @@ const Uploadvideo = () => {
     setVideoUrl(e.target.value);
   };
 
-  const handleIpChange = (e) => {
-    e.preventDefault();
-    setIpAddress(e.target.value);
-  };
+  // const handleIpChange = (e) => {
+  //   e.preventDefault();
+  //   setIpAddress(e.target.value);
+  // };
 
   const handlesubmit = async (e) => {
     e.preventDefault();
 
     // Check if either the video file or the video URL is filled
     if (!(selectedVideo || videoUrl)) {
-      alert('Please select a video file or enter a video URL.');
+      alert('Please select a video file or a Cam IP.');
       return;
     }
 
@@ -71,7 +71,7 @@ const Uploadvideo = () => {
     };
 
     try {
-      const res = await fetch(ipAddress, options);
+      const res = await fetch('http://localhost:4000/uploadvideo', options);
       const data = await res.json();
       console.log(data);
 
@@ -101,8 +101,8 @@ const Uploadvideo = () => {
   };
 
   const containerStyle = {
-    width: '100vw',
-    height: '100vh',
+    width: '100vw',  // Set the width to 25% of the viewport width
+    height: '100vh', // Set the height to 25% of the viewport width (maintaining a 1:1 aspect ratio)
     border: '1px solid #ccc',
   };
 
@@ -122,8 +122,8 @@ const Uploadvideo = () => {
         <label>Select Video file: </label>
         <input type="file" accept="video/*" onChange={handleFileChange} />
         Or
-        <label> Enter your IP Address : </label>
-        <input type="text" value={ipAddress} onChange={handleIpChange} required/>
+        <label>Enter Cam IP Address: </label>
+        <input type="url" name='url' value={videoUrl} onChange={urlChange} placeholder='URL' />
         <button type="submit">Submit</button>
         <button onClick={stopStream}>Stop Stream</button>
       </form>
