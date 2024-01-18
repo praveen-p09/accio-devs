@@ -26,6 +26,8 @@ def start_stream():
         video_data = request.files.get('video')
         video_url = request.form.get('video_url')
         print(video_url)
+        if(video_data):
+            video_data = request.files['video'].read()
         long = request.form['logi']
         lati = request.form['lati']
         stream.set_data(long,lati,video_data=video_data,video_url=video_url)
