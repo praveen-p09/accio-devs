@@ -107,8 +107,9 @@ const Uploadvideo = () => {
   };
 
   const iframeStyle = {
-    width: '100vw',
-    height: '100vh',
+    width: '90vw',
+    height: '90vh',
+    border: '2px solid #5d5d5d',
   };
 
   return (
@@ -129,7 +130,7 @@ const Uploadvideo = () => {
       </form>
       
       {selectedVideo && (
-        <div>
+        <div className='preview'>
           <h2>Selected Video</h2>
           <p>File Name: {selectedVideo.name}</p>
           <p>File Size: {selectedVideo.size} bytes</p>
@@ -146,11 +147,11 @@ const Uploadvideo = () => {
         </div>
       )}
 
-      <div style={containerStyle}>
+      <div className='stream' style={containerStyle}>
+      <h1>Stream</h1>
         <iframe
           title="Embedded Video"
           src="http://localhost:4000/uploadvideo"
-          frameBorder="0"
           style={iframeStyle}
           allowFullScreen
         ></iframe>

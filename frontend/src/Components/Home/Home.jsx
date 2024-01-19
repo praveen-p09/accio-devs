@@ -1,7 +1,13 @@
 import React from 'react';
 import './Home.css';
+import Footer from './Footer';
 import complaintImg from '../../assets/Images/complaint.svg';
-function Home() {
+import working from '../../assets/Videos/working.mp4';
+import detection from '../../assets/Images/detection.jpeg';
+import map from '../../assets/Images/map.jpeg';
+import pothole_details from '../../assets/Images/pothole_details.jpeg';
+
+const Home=()=> {
 
 
     return (
@@ -10,7 +16,7 @@ function Home() {
             <div className='topContainerDark-homepage'>
               <div className='topContainerContent-homepage'>
                 <div className='title-homepage'><h1 className='h1-homepage'>Pothole Detection using ML Model</h1></div>
-            <button className='button-homepage'><img src={complaintImg} alt="" className='complaintImg-button' /> Register Complaint </button>
+            <a href="/form"><button className='button-homepage'><img src={complaintImg} alt="" className='complaintImg-button' /> Register Complaint </button></a>
             </div>
               <div className='topContainerDarker-homepage'></div>
           </div></div>
@@ -42,10 +48,22 @@ function Home() {
 
           <div className='mainContainerContent-2 mainContainerCard'><strong><h2>Reporting Potholes: Be the Change</h2></strong><br/>
           <p>Become an advocate for smoother roads by learning how to report potholes in your community. Potholepedia provides resources and guides on how to effectively communicate with local authorities, ensuring that the necessary repairs are made promptly.
-          </p></div>
+          </p>
           </div>
           </div>
-          
+
+          <div className="working">
+            <h1>Components & Working</h1>
+            <video width="900" controls>
+                <source src={working} type="video/mp4" />
+                Your browser does not support the video tag.
+            </video>
+            <img src={detection} alt="" />
+            <img src={map} alt="" />
+            <img src={pothole_details} alt="" />
+          </div>
+          </div>
+          <Footer/>
       </>
     )
   }
