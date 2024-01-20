@@ -1,4 +1,4 @@
-#Realtime Pothole Complaints
+<h1 align="center" id="title">Realtime Pothole Complaints</h1>
 
 ![Alt text](images/Main_page.jpg)
 
@@ -7,7 +7,7 @@ It is a software product for detection of potholes and marking them on the map f
 ![Alt text](images/Detection.jpg)
 ![Alt text](images/Map.jpg)
 
-The website consists of a complaint page where you can provide details and image of the pothole with your        location.
+The website consists of a complaint page where you can provide details and image of the pothole with your location.
 
 We also have a section where you can provide the a video or IP address of your webcam to capture a video. 
  
