@@ -19,14 +19,11 @@ def upload_images(db,bucket):
             images = os.listdir(os.path.join(path_images,'images'))
         if images!=None:
             for path in images:
-                print("Upload started")
                 loc = path.split('.')[0]
                 loc = loc + '.txt'
                 image_path = os.path.join(path_images,'images',path)
                 # Local path to the image you want to upload
                 local_location_path = os.path.join(path_images,'location',loc)
-                longi = None
-                lati = None
                 with open(local_location_path,'r') as f:
                     location = f.readline()
                     longi, lati = location.split(" ")
