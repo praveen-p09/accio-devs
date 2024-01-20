@@ -1,11 +1,11 @@
 <h1 align="center" id="title"><h1 align="center" id="title">Smart Door Opening System</h1></h1>x
 
-images\Main_page.jpg
+![Screenshot](relative%20path\images\Main_page.jpg)
 
 It is a software product for detection of potholes and marking them on the map for the goverment to view and take actions on. 
 
-images\Detection.jpg
-images\Map.jpg
+![Screenshot](relative%20path\images\Detection.jpg)
+![Screenshot](relative%20path\images\Map.jpg)
 
 The website consists of a complaint page where you can provide details and image of the pothole with your        location.
 
@@ -13,7 +13,7 @@ We also have a section where you can provide the a video or IP address of your w
  
 When the potholes are detcted, the pictures of the pothole are stored in the database with the location. Using the images we calculate the volume and a 3d model of the pothole for better understanding of the problem with all other details. You can view this details by clicking on the pointer in the map.
 
-##Instructions to run the project locally.
+<h2>Instructions to run the project locally.</h2>
 
 Git clone the project locally and follow the instructions below. Do have docker installed in your system.
 
