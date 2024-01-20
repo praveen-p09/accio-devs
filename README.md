@@ -1,11 +1,11 @@
-#Realtime Pothole Complaints
+<h1 align="center" id="title"><h1 align="center" id="title">Smart Door Opening System</h1></h1>x
 
-[Main_page](images\Main_page.jpg)
+images\Main_page.jpg
 
 It is a software product for detection of potholes and marking them on the map for the goverment to view and take actions on. 
 
-[Detection](.\images\Detection.jpg)
-[Map](.\images\Map.jpg)
+images\Detection.jpg
+images\Map.jpg
 
 The website consists of a complaint page where you can provide details and image of the pothole with your        location.
 
