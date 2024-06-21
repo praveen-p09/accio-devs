@@ -16,12 +16,12 @@
 .topContainer-homepage{
     position: absolute;
     top:0;
-    width: 100%;
+    width: 100vw;
     height: 100vh;
 }
 .topContainerDark-homepage{
     padding-top: 4rem;
-    width: 100%;
+    width: 100vw;
     height: 90vh;
     backdrop-filter: brightness(60%);
     -webkit-backdrop-filter: brightness(60%);
@@ -120,20 +120,25 @@
         left: 5vw;
     }
     .topContainerDarker-homepage{
-        width: 100%;
+        width: 100vw;
         height: 100vh;
     }
     .topContainerDark-homepage{
         height: 100vh;
+        width: 100vw;
     }
     .topContainer-homepage{
         height: 100vh;
+        width: 100vw;
     }
     .topContainerVoid-homepage{
         height: 100vh;
     }
     .component-homepage{
         flex-direction: column;
+    }
+    .working{
+        left: 0;
     }
 }
 
