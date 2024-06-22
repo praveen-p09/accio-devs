@@ -2,32 +2,35 @@ import { useState } from "react";
 import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
 import Slide from "./Slide";
 import road from "../../assets/Images/Pothole-homepage.jpg"
-
+import './slider.css';
 import road2 from "../../assets/images/potholes-1-2.webp";
+import road3 from "../../assets/images/potholes2.png";
 const data = [
   {
     id: 1,
     src: road,
-    headline: "Safe roads",
-    body: "Roads are the viens of a country/state",
-    cta: "Potholes are hernia",
-    target: "features",
+    headline: "Pothole-Vision",
+    body: "A vision to make indian roads potholes-free",
+    cta: "Report a Pothole",
+    target: "form",
   },
   {
     id: 2,
-    src: road2,
-    headline: "Train like a champion at Karate Kastle",
-    body: "Constant vehicular traffic, especially heavy vehicles, can accelerate the deterioration of road suraces. The repeated pressure from vehicle loads weakens the asphalt and underlying layers, making them more susceptible to damage.",
-    cta: "About Us",
-    target: "about",
+    src: road3,
+    headline: "Roads are viens of a country",
+    body: "There are currently no maps that displays potholes between source and destination",
+    cta: "Navigate with Us",
+    target: "map",
+   
   },
   {
+    
     id: 3,
-    src: "https://i.ibb.co/Pmvjwt9/slider3.png",
-    headline: "Elevate your karate skills to the next level",
-    body: "Karate Kastle is dedicated to providing the highest quality martial arts instruction in a variety of styles, including Karate, Taekwondo and Kung Fu, for students of all ages and skill levels.",
-    cta: "Join our community",
-    target: "register",
+    src: road2,
+    headline: "Know the project",
+    body: "",
+    cta: "Understand the working",
+    target: "working",
   },
 ];
 

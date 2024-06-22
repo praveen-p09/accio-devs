@@ -3,20 +3,30 @@
   padding-top: 3rem; /* Add padding to body equal to the height of the fixed navbar */
 }  
 
-/* .navbar {
+.navbar {
+  top: 0;
+  left: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: #ffffff3d;
-  padding: 10px 20px;
+  /* padding: 10px 20px; */
   backdrop-filter: blur(10px);
-  height: 2rem;
+  height: 4rem;
   position: fixed;
-  width: 100%;
-  top: 0; /* Ensure the navbar sticks to the top of the viewport */
+  width: 95vw;
   z-index: 1000; /* Set a high z-index to ensure the navbar appears above other content */
-} */
-.navbar{
+  padding-left: 5%;
+  padding-right: 5%;
+  
+  box-shadow: 0 1.2rem 3.2rem rgba(0, 0, 0, 0.1);
+}
+.navbar-contact{
+  font-size: larger;
+  color: white;
+  background-color: red;
+}
+/* .navbar{
   background-color: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -28,24 +38,23 @@
   z-index: 99;
   box-shadow: 0 1.2rem 3.2rem rgba(0, 0, 0, 0.1);
   display: flex;
-  justify-content: center;
+  justify-content:space-between;
 
-}
+} */
 .navbar-logo img {
   text-decoration: none;
   height: 2.6rem;
   width: 2.8rem;
 }
-.navbarContainer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+
 .navbar-menu {
   list-style: none;
   display: flex;
   align-items: center;
-  gap: 3.5rem;
+  justify-content: space-evenly;
+  padding-right: 36px;
+  /* margin-right: 5%; */
+
 }
 /* .navbar-menu {
   display: flex;
@@ -62,8 +71,38 @@
   font-size: 1.3rem;
   margin-right: 2rem;
   padding: 15px;
+  display: block;
 }
-
+.mobile{
+  visibility: hidden;
+}
+.toggle{
+  position:absolute;
+  right: 1rem;
+  top:0.75rem;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 24px;
+  width: 32px;
+}
+.itemNav{
+  width: 100%;
+  height: 3px;
+  border-radius:10px ;
+  background-color: black;
+}
 .navbar-link:hover {
   background-color: orangered;
+}
+@media (max-width: 600px) {
+  .navItem{
+    display: none;
+
+  }
+  .toggle{
+    display: flex;
+
+  }
+  
 }

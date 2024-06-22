@@ -12,6 +12,7 @@ import MapContainer from '../src/page/mainMap/Map';
 import Navbar from './Components/Navbar/navbar';
 import Uploadvideo from './Components/Uploadvideo/Uploadvideo';
 import Slider from './Components/slider/Slider';
+import Workings from './Components/working/Working';
 function App() {
 
 
@@ -29,6 +30,7 @@ function App() {
               <Route path="/formdisplay" element={<TabularData/>} />
               <Route path="/map" element={<MapContainer/>} />
               <Route path="/uploadvideo" element={<Uploadvideo/>} />
+              <Route path="/working" element={<Workings/>} />
               
             </Routes>
           
