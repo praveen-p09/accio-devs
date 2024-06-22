@@ -82,11 +82,23 @@ const signinhandle = () => {
       <div className="container">
          <h1>Pothole -{holedetail.id}</h1>
          <div className='flexr'>
-        <div className='bg3d wrapper'>
+       {holedetail.id!=="spAn2mfSpf"? <div className='bg3d wrapper'>
 
           <img src="https://t3.ftcdn.net/jpg/03/60/90/92/360_F_360909266_3mWP6FZZOQMG5aRUozFYPKjPm6FK4nUx.jpg" alt="bg-scale" />
-          <model-viewer id="reveal" loading="eager" src={`../../model.glb`} alt="A 3D model of an item" camera-controls></model-viewer>
-        </div>
+          <model-viewer id="reveal" loading="eager" src={'../../../model.glb'} alt="A 3D model of an item" camera-controls></model-viewer>
+        </div>:  <div style={ { margin: '15px' } }>
+            <div className="sketchfab-embed-wrapper">
+      <iframe
+        title="pothole3d"
+        frameBorder="0"
+        allowFullScreen
+        allow="autoplay; fullscreen; xr-spatial-tracking"
+        src="https://sketchfab.com/models/b1e31f0088e54488ac6d8040075e0e78/embed?autostart=1&preload=1&ui_theme=dark"
+        width="400"
+        height="400" // Set the desired height
+      ></iframe>
+    </div>
+               </div>}
         <div  className="details">
           <h3>Details</h3>
           <p>Coordinates : {holedetail.longitude}, {holedetail.latitude}</p>

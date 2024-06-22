@@ -71,7 +71,7 @@ const Uploadvideo = () => {
     };
 
     try {
-      const res = await fetch('http://localhost:4000/uploadvideo', options);
+      const res = await fetch('https://accio-devs-backend.onrender.com/uploadvideo', options);
       const data = await res.json();
       console.log(data);
 
