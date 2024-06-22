@@ -1,21 +1,30 @@
-
+.fullHomepage{
+    width: 100vw;
+}
 .container-homepage{
     padding: 5%;
 }
 .complaintImg-button{
     /* height: 12px; */
 }
+.component-homepage{
+    padding: 2rem;
+    display: flex;
+    flex-direction: row;
+    margin: 1rem                        ;
+}
 .topContainer-homepage{
     position: absolute;
     top:0;
-    width: 100%;
+    width: 100vw;
     height: 100vh;
 }
 .topContainerDark-homepage{
     padding-top: 4rem;
-    width: 100%;
+    width: 100vw;
     height: 90vh;
     backdrop-filter: brightness(60%);
+    -webkit-backdrop-filter: brightness(60%);
     /* background-color: rgba(43, 41, 41, 0.195); */
 }
 .topContainerVoid-homepage{
@@ -80,10 +89,13 @@
     align-items: center;
     padding: 5%;
 }
-.working img{
-    height: 75%;
-    width: auto;
-    padding: 5%;
+.working img, .working video{
+    height: 50%;
+    /* width: 50%; */
+    width: 60vw;
+    min-width: 500px;
+    max-width: 920px;
+    /* padding: 5%; */
 }
 
 @media screen and (max-width: 768px) {
@@ -108,19 +120,26 @@
         left: 5vw;
     }
     .topContainerDarker-homepage{
-        width: 100%;
+        width: 100vw;
         height: 100vh;
     }
     .topContainerDark-homepage{
         height: 100vh;
+        width: 100vw;
     }
     .topContainer-homepage{
         height: 100vh;
+        width: 100vw;
     }
     .topContainerVoid-homepage{
         height: 100vh;
     }
-    
+    .component-homepage{
+        flex-direction: column;
+    }
+    .working{
+        left: 0;
+    }
 }
 
 .footer{
