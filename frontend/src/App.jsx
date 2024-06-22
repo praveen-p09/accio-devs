@@ -11,6 +11,7 @@ import TabularData from './Components/ComplaintData/dataTable';
 import MapContainer from '../src/page/mainMap/Map';
 import Navbar from './Components/Navbar/navbar';
 import Uploadvideo from './Components/Uploadvideo/Uploadvideo';
+import Slider from './Components/slider/Slider';
 function App() {
 
 
@@ -20,6 +21,8 @@ function App() {
         <Navbar/>
             <Routes>
               <Route exact path="/test" element={ <Addlocation/> } />
+              <Route exact path="/slide" element={ <Slider/> } />
+              
               <Route exact path="/" element={  <Home/>  } />
               <Route path="/form" element={<ImageUploadForm/>} />
               <Route path="/pothole/:holeID" element={<Pothole/>} />

@@ -10,6 +10,7 @@ const Navbar = () => {
  };
 
  return (
+    <div className="navbarContainer">
     <nav className="navbar">
       <Link to="/" className="navbar-logo"><img src="../../../public/logo.png" alt="logo" /></Link>
       <ul className={`navbar-menu ${open ? 'navbar-open' : ''}`}>
@@ -32,6 +33,7 @@ const Navbar = () => {
         <div className={`hamburger-line ${open ? 'hamburger-open' : ''}`}></div>
       </div>
     </nav>
+    </div>
  );
 };
 
