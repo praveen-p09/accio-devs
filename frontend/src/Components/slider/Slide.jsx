@@ -6,7 +6,13 @@ import {
   useGsapHeadingRevile,
   useGsapCtaUpward
 } from "../../hooks/gsap.jsx";
+import './slider.css';
+const giveStyling={
+  "background-color":"red",
+   "borderRadius":"10px",
+   "text-decoration":"none"
 
+}
 const Slide = ({ image }) => {
   const headingSpanRef = useRef(null);
   const bodyRef = useRef(null);
@@ -25,12 +31,14 @@ const Slide = ({ image }) => {
       key={image.id}
     >
       <div className='slide-content container'>
-        <h1 ref={headingRef}>
+        <div className="containerInside">
+        <h1 ref={headingRef} style={{"textAlign":"left"}}>
           {image.headline}
           <span ref={headingSpanRef}></span>
         </h1>
-        <p ref={bodyRef}>{image.body}</p>
-        <a href={`#${image.target}`} ref={ctaRef} className='slide-cta-link'>
+        <p className="sliderContent" ref={bodyRef}>{image.body}</p>
+        </div>
+        <a href={`${image.target}`} ref={ctaRef} className='slide-cta-link' style={giveStyling}>
           {image.cta}
         </a>
       </div>

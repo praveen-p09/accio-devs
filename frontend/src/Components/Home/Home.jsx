@@ -1,27 +1,28 @@
 import React from 'react';
 import './Home.css';
 import Footer from './Footer';
-import complaintImg from '../../assets/Images/complaint.svg';
-import working from '../../assets/Videos/working.mp4';
-import detection from '../../assets/Images/detection.jpeg';
-import map from '../../assets/Images/map-img.png';
-import pothole_details from '../../assets/Images/pothole_details.jpeg';
 
+// import slide from '../../Components/slider/Slider'
+import Slide from '../../Components/slider/Slider';
+import Working from '../working/Working';
 const Home=()=> {
 
 
     return (
       <>
           <div className="fullHomepage">
+          {/* <Slide/> */}
           <div className='topContainer-homepage'>
-            <div className='topContainerDark-homepage'>
+            {/* <div className='topContainerDark-homepage'>
               <div className='topContainerContent-homepage'>
                 <div className='title-homepage'><h1 className='h1-homepage'>Pothole Detection using ML Model</h1></div>
             <a href="/form"><button className='button-homepage'><img src={complaintImg} alt="" className='complaintImg-button' /> Register Complaint </button></a>
             </div>
               <div className='topContainerDarker-homepage'></div>
-          </div></div>
-          <dir className='topContainerVoid-homepage'></dir>
+          </div> */}
+          <Slide/>
+          </div>
+          {/* <dir className='topContainerVoid-homepage'></dir> */}
           <div className='container-homepage'>
 
           
@@ -52,31 +53,8 @@ const Home=()=> {
           </p>
           </div>
           </div>
-
-          <div className="working">
-            <h1>Components & Working</h1>
-            <div className='component-homepage'>
-            <div>
-            <video width="900" controls>
-                <source src={working} type="video/mp4" />
-                Your browser does not support the video tag.
-            </video></div><div>
-              <h3>Working</h3>
-            </div>
-            </div>
-            <div className='component-homepage'>
-              <div><h3>Map</h3><p>Moving from point A to point B?<br /> To make your journey seamless and safe, We made it easier for you to locate potholes, Just mark your starting point and ending point and we'll show you where the potholes are in your journey.</p></div>
-              <img src={map} alt="" />
-              
-            
-              
-            </div><div className='component-homepage'>
-            
-            <img src={detection} alt="" />
-            </div><div className='component-homepage'>
-            <img src={pothole_details} alt="" />
-            </div>
-          </div>
+            <Working/>
+          
           </div>
           </div>
           <Footer/>

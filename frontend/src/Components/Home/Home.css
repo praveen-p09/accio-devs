@@ -1,41 +1,37 @@
-.fullHomepage{
-    width: 100vw;
-}
+
 .container-homepage{
     padding: 5%;
 }
-.complaintImg-button{
-    /* height: 12px; */
-}
+
 .component-homepage{
-    padding: 2rem;
+    /* padding: 2rem; */
     display: flex;
     flex-direction: row;
-    margin: 1rem                        ;
+    /* margin: 1rem                        ; */
 }
-.topContainer-homepage{
+/* .topContainer-homepage{
     position: absolute;
     top:0;
     width: 100vw;
     height: 100vh;
-}
-.topContainerDark-homepage{
+} */
+/* .topContainerDark-homepage{
     padding-top: 4rem;
     width: 100vw;
     height: 90vh;
     backdrop-filter: brightness(60%);
     -webkit-backdrop-filter: brightness(60%);
     /* background-color: rgba(43, 41, 41, 0.195); */
-}
-.topContainerVoid-homepage{
+/* } */ 
+/* .topContainerVoid-homepage{
     width: 100%;
     height: 100vh;
     background-image: url("../../assets/Images/Pothole-homepage.jpg");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-}
-.topContainerDarker-homepage{
+} */
+/* .topContainerDarker-homepage{
     position: absolute;
     top: 0;
     width: 40%;
@@ -44,7 +40,6 @@
 }
 .topContainerContent-homepage{
     z-index: 10;
-    /* display: grid; */
     text-align: left;
     position: relative;
     top:35vh;
@@ -63,7 +58,7 @@
 }
 .topContainerContent-homepage button:hover{
     background-color: rgb(212, 58, 1);
-}
+} */
 .button-homepage{
     background-color: orangered;
 }
