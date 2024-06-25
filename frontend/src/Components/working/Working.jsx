@@ -12,7 +12,7 @@ const Working=()=>{
     <div className="working">
             <h1>Components & Working</h1>
             <div class="timeline">
-  <div class="container left">
+  <div class="containerTimeLine left">
     <div class="content">
             
               <h3>Working</h3>
@@ -20,7 +20,7 @@ const Working=()=>{
             
     </div>
   </div>
-  <div class="container right">
+  <div class="containerTimeLine right">
     <div class="content">
     <div ><h3>Map</h3><p>Moving from point A to point B?<br /> To make your journey seamless and safe, We made it easier for you to locate potholes, Just mark your starting point and ending point and we'll show you where the potholes are in your journey.</p></div>
     <img className='mapView' src={map} alt="" />

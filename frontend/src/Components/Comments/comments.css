@@ -21,7 +21,7 @@
   }
   
   button {
-    background-color: #007BFF;
+    /* background-color: #007BFF; */
     color: #fff;
     border: none;
     padding: 10px 20px;
@@ -30,7 +30,7 @@
   }
   
   button:hover {
-    background-color: #0056b3;
+    /* background-color: #0056b3; */
   }
   
   
