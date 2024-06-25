@@ -24,6 +24,11 @@
 .navbar-contact{
   font-size: larger;
   color: white;
+  background-color: orangered;
+}
+button:hover{
+  font-size: larger;
+  color: white;
   background-color: red;
 }
 /* .navbar{
@@ -73,9 +78,7 @@
   padding: 15px;
   display: block;
 }
-.mobile{
-  visibility: hidden;
-}
+
 .toggle{
   position:absolute;
   right: 1rem;

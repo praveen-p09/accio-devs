@@ -34,7 +34,10 @@ const Navbar = () => {
           <Link to="/uploadvideo" className="navbar-link">Stream</Link>
         </li>
         <li className="navbar-item">
-          <Link to="/form" className="navbar-link">Form</Link>
+          <Link to="/form" className="navbar-link">File Complaint</Link>
+        </li>
+        <li className="navbar-item">
+          <Link to="/checkprogress" className="navbar-link">Complaint progress</Link>
         </li>
         <li className="navbar-item contact">
           

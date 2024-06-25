@@ -34,6 +34,7 @@
     display: inline-block;
     font-family: var(--font-ferrum);
     background-color: rgba(34, 9, 9, 0.276);
+    backdrop-filter: blur(20px);
     
     padding: 0 1.5rem;
     position: relative;
