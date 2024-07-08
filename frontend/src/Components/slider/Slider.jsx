@@ -3,7 +3,7 @@ import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
 import Slide from "./Slide";
 import road from "../../assets/Images/Pothole-homepage.jpg"
 import './slider.css';
-import road2 from "../../assets/images/potholes-1-2.webp";
+import road2 from "../../assets/images/potholes-1-2.png";
 import road3 from "../../assets/images/potholes2.png";
 const data = [
   {

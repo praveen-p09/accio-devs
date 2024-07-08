@@ -103,7 +103,7 @@
     background-color: rgb(255, 255, 255);
     position: relative;
     border-radius: 6px;
-    width: 40vw;
+    /* width: 40vw; */
   }
   
   /* Media queries - Responsive timeline on screens less than 600px wide */
