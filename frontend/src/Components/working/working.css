@@ -7,7 +7,7 @@
     margin: 0 auto;
   }
   .mapView{
-    width: 480px;
+    width: 720px;
   }
   /* The actual timeline (the vertical ruler) */
   .timeline::after {

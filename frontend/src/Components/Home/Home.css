@@ -87,7 +87,7 @@
 .working img, .working video{
     height: 50%;
     /* width: 50%; */
-    width: 60vw;
+    /* width: 60vw; */
     min-width: 500px;
     max-width: 920px;
     /* padding: 5%; */
