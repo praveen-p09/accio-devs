@@ -112,7 +112,7 @@ function ImageUploadForm() {
     <div className="form-container">
       <h2>Upload details about potholes</h2>
       <form onSubmit={handleSubmit}>
-        <div>
+        <div className='form-container-details'>
           <label htmlFor="image">Choose an image:</label>
           <input
             type="file"

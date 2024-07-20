@@ -13,6 +13,7 @@ import Navbar from './Components/Navbar/navbar';
 import Uploadvideo from './Components/Uploadvideo/Uploadvideo';
 import Slider from './Components/slider/Slider';
 import Workings from './Components/working/Working';
+import ComplaintProgress from './Components/ComplaintProgress/complaintProgress';
 function App() {
 
 
@@ -31,6 +32,7 @@ function App() {
               <Route path="/map" element={<MapContainer/>} />
               <Route path="/uploadvideo" element={<Uploadvideo/>} />
               <Route path="/working" element={<Workings/>} />
+              <Route path="/complaintprogress" element={<ComplaintProgress/>} />
               
             </Routes>
           
