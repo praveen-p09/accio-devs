@@ -2,9 +2,9 @@
 
 /* Style the form container */
 .form-container {
-    max-width: 500px;
-    margin: 0 auto;
-    padding: 10px;
+    /* max-width: 500px; */
+    /* margin: 5% auto; */
+    padding: 10%;
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: #f9f9f9;
@@ -38,7 +38,7 @@
   
   /* Style the "Choose on Map" button */
   button[type="button"] {
-    background-color: #0074d9;
+    background-color: orangered;
     color: #fff;
     padding: 10px 20px;
     border: none;
@@ -47,7 +47,7 @@
   }
   
   button[type="button"]:hover {
-    background-color: #0056b3;
+    background-color: red;
   }
   
   /* Style the map container */
@@ -58,7 +58,7 @@
   
   /* Style the submit button */
   button[type="submit"] {
-    background-color: #4CAF50;
+    background-color: orangered;
     color: #fff;
     padding: 10px 20px;
     border: none;
@@ -67,6 +67,6 @@
   }
   
   button[type="submit"]:hover {
-    background-color: #45a049;
+    background-color: red;
   }
   

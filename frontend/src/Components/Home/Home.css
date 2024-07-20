@@ -77,7 +77,7 @@
     background-color: rgba(244, 242, 242, 0.174);
 }
 
-.working{
+/* .working{
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -87,11 +87,11 @@
 .working img, .working video{
     height: 50%;
     /* width: 50%; */
-    /* width: 60vw; */
+
     min-width: 500px;
-    max-width: 920px;
+    max-width: 920px; */
     /* padding: 5%; */
-}
+/* } */ 
 
 @media screen and (max-width: 768px) {
     .topContainerContent-homepage{
