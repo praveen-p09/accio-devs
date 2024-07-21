@@ -12,10 +12,6 @@
     max-width: 1200px;
     margin: 0 auto;
   }
-
-  .mapView{
-    width: 720px;
-  }
   /* The actual timeline (the vertical ruler) */
   .timeline::after {
     content: '';
@@ -108,7 +104,7 @@
     background-color: rgb(255, 255, 255);
     position: relative;
     border-radius: 6px;
-    /* width: 40vw; *
+    /* width: 40vw; */
   }
   .workingImg{
     width: 520px;
