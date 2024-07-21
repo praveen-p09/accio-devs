@@ -134,8 +134,9 @@ export default function MapComponent() {
 
 
     return (
-        <div id='map' style={{height:'100vh',width:'100vw'}}>
-           hlo this is map
+
+        <div id='map' style={{justifyContent:'center',height:'80vh',width:'100vw', marginTop:"10vh"}}>
+            map
         </div>
     )
 }

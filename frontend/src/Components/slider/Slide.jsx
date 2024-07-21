@@ -8,10 +8,9 @@ import {
 } from "../../hooks/gsap.jsx";
 import './slider.css';
 const giveStyling={
-  "background-color":"red",
+  "background-color":"orangered",
    "borderRadius":"10px",
    "text-decoration":"none"
-
 }
 const Slide = ({ image }) => {
   const headingSpanRef = useRef(null);
@@ -30,17 +29,21 @@ const Slide = ({ image }) => {
       style={{ backgroundImage: `url(${image.src}) ` }}
       key={image.id}
     >
-      <div className='slide-content container'>
+      <div className='slide-content'>
         <div className="containerInside">
-        <h1 ref={headingRef} style={{"textAlign":"left"}}>
+        <h1 ref={headingRef} className="resp-heading-slider" >
           {image.headline}
           <span ref={headingSpanRef}></span>
         </h1>
         <p className="sliderContent" ref={bodyRef}>{image.body}</p>
         </div>
+        <div textAlign="center">
+          <div className="slider-button">
         <a href={`${image.target}`} ref={ctaRef} className='slide-cta-link' style={giveStyling}>
           {image.cta}
         </a>
+        </div>
+        </div>
       </div>
     </div>
   );
