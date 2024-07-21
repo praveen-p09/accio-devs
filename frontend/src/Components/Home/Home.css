@@ -83,6 +83,24 @@
     background-color: rgba(244, 242, 242, 0.174);
 }
 
+<<<<<<< HEAD
+=======
+/* .working{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 5%;
+}
+.working img, .working video{
+    height: 50%;
+    /* width: 50%; */
+
+    min-width: 500px;
+    max-width: 920px; */
+    /* padding: 5%; */
+/* } */ 
+>>>>>>> b56f0b076487b584d398996cb225b00d19d3a333
 
 @media screen and (max-width: 768px) {
     .topContainerContent-homepage{
