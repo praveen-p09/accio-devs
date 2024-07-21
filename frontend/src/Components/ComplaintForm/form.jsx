@@ -110,17 +110,22 @@ function ImageUploadForm() {
     <>
     
     <div className="form-container">
-      <h2>Upload details about potholes</h2>
+      {/* <br /> */}
+      <h1>Upload details about potholes</h1>
+      <br />
       <form onSubmit={handleSubmit}>
+        <div className="form-details-pothole form-container-inner">
         <div className='form-container-details'>
           <label htmlFor="image">Choose an image:</label>
           <input
+            className='form-image-input'
             type="file"
             id="image"
             accept=".jpg, .jpeg, .png"
             onChange={handleImageChange}
           />
         </div>
+          <br />
 
         {image && (
           <div>
@@ -175,8 +180,11 @@ function ImageUploadForm() {
             onChange={(e) => setMessage(e.target.value)}
           />
         </div>
+        </div>
+<br /><br />
+        <h1>Location</h1>
+        <div className="form-container-inner">
 
-        <h2>Address Form</h2>
         <div>
           <label htmlFor="address">Address:</label>
           <input
@@ -225,6 +233,7 @@ function ImageUploadForm() {
             onChange={(e) => setPincode(e.target.value)}
           />
         </div>
+        </div>
 
         {/* <div>
           <label htmlFor="location">Location:</label>
@@ -240,9 +249,9 @@ function ImageUploadForm() {
           >
             Choose on Map
           </button>
-        </div> */}
+        </div>
 
-        {/* {showMap && (
+        {showMap && (
           <MapComponent
             isMarkerShown
             lat={location.lat}
@@ -253,8 +262,10 @@ function ImageUploadForm() {
             mapElement={<div style={{ height: '100%' }} />}
           />
         )} */}
-
+        <div className="button-capsule">
+          <br />
         <button type="submit">Submit</button>
+        </div>
       </form>
     </div>
     </>

@@ -3,6 +3,7 @@
   /* The actual timeline (the vertical ruler) */
   .working{
     padding-top: 48px;
+    padding-bottom: 48px;
     padding-right: 10px;
     background-image: linear-gradient(rgba(246, 209, 196, 0.562),white,white,white,white,rgba(246, 209, 196, 0.562)) ;
   }
@@ -53,7 +54,7 @@
   .left {
     /* left: 0; */
     right: 0;
-    padding-right: 20px;
+    /* padding-right: 20px; */
     text-align: right;
     /* padding-right: 10%; */
   }
@@ -91,7 +92,7 @@
     width: 0;
     z-index: 1;
     left: 30px;
-    border: medium solid white;
+    border: medium solid rgb(0, 0, 0);
     border-width: 10px 10px 10px 0;
     border-color: transparent white transparent transparent;
   }
@@ -119,16 +120,17 @@
       left: 31px;
     }
     .content{
-      width: 100vw;
+      width: 90vw;
       /* justify-content: center; */
       text-align: left;
+      font-size: medium;
       /* padding-left: 60px; */
 
     }
   /* Full-width containers */
     .container {
       width: 90%;
-      padding: 40px;
+      padding: 4px;
       /* padding-left: 70px; */
       /* padding-right: 25px; */
     }

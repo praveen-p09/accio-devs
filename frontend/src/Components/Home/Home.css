@@ -59,6 +59,11 @@
 .topContainerContent-homepage button:hover{
     background-color: rgb(212, 58, 1);
 } */
+ .heading-highlight{
+    padding: 4px;
+    color: orangered;
+    font-size: larger;
+ }
 .button-homepage{
     background-color: orangered;
 }
@@ -70,13 +75,16 @@
 .mainContainerCard{
     /* background-image: url("../../assets/Images/orange-bg.jpg"); */
     margin:3rem;
-    padding: 5px;
-    width: 60%;
+    padding: 10px;
+    /* text-align: center; */
+    /* width: 100%; */
     /* background-color: rgba(255, 68, 0, 0.174); */
     font-family: 'Poppins', sans-serif;
     background-color: rgba(244, 242, 242, 0.174);
 }
 
+<<<<<<< HEAD
+=======
 /* .working{
     display: flex;
     flex-direction: column;
@@ -92,6 +100,7 @@
     max-width: 920px; */
     /* padding: 5%; */
 /* } */ 
+>>>>>>> b56f0b076487b584d398996cb225b00d19d3a333
 
 @media screen and (max-width: 768px) {
     .topContainerContent-homepage{
@@ -169,4 +178,7 @@
 }
 .footerContent-3{
     width: 50%;
+}
+.here-link{
+    color: orangered;
 }
