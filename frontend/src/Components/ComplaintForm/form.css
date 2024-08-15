@@ -1,29 +1,36 @@
-/* Add this CSS to your stylesheet or in a separate .css file */
 
-/* Style the form container */
 .form-container {
-    max-width: 500px;
-    margin: 0 auto;
-    padding: 10px;
-    border: 1px solid #ccc;
+    font-size:x-large;
+    padding: 3% 10%;
+    
+    background-color: rgb(250, 240, 237);
+  }
+  .form-container-inner{
+    border:1px solid #212121;
+    padding: 5% 10%;
     border-radius: 5px;
-    background-color: #f9f9f9;
+    background-color: rgba(255, 255, 255, 0.51);
+    backdrop-filter: blur(10px);
   }
-  
-  /* Style form sections (image upload and contact details) */
+
   .form-section {
+    
     margin-bottom: 20px;
+    font-size: larger;
   }
   
-  /* Style labels */
+  #message{
+    width: 90%;
+
+  }
   label {
     display: block;
     font-weight: bold;
     margin-bottom: 5px;
     text-align: left;
+    
   }
   
-  /* Style input fields and textareas */
   input[type="text"],
   input[type="email"],
   input[type="tel"],
@@ -38,7 +45,8 @@
   
   /* Style the "Choose on Map" button */
   button[type="button"] {
-    background-color: #0074d9;
+    margin: auto;
+    background-color: orangered;
     color: #fff;
     padding: 10px 20px;
     border: none;
@@ -47,18 +55,19 @@
   }
   
   button[type="button"]:hover {
-    background-color: #0056b3;
+    background-color: red;
   }
   
   /* Style the map container */
-  .map-container {
+  /* .map-container {
     height: 200px;
     margin-top: 10px;
-  }
+  } */
   
   /* Style the submit button */
   button[type="submit"] {
-    background-color: #4CAF50;
+    font-size: x-large;
+    background-color: orangered;
     color: #fff;
     padding: 10px 20px;
     border: none;
@@ -67,6 +76,10 @@
   }
   
   button[type="submit"]:hover {
-    background-color: #45a049;
+    background-color: red;
+  }
+  .button-capsule{
+    padding: auto;
+    text-align: center;
   }
   

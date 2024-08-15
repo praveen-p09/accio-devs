@@ -99,6 +99,21 @@ button:hover{
   background-color: orangered;
 }
 @media (max-width: 600px) {
+
+  .navbar{
+    /* width: 375px; */
+    padding: 0%;
+    width: 100vw;
+  }
+  .navbar-logo img {
+    text-decoration: none;
+    height: 2.6rem;
+    width: 2.8rem;
+  }
+  .navbar-logo img {
+    margin-left:16px ;
+  }
+    
   .navItem{
     display: none;
 

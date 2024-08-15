@@ -37,7 +37,7 @@ const Navbar = () => {
           <Link to="/form" className="navbar-link">File Complaint</Link>
         </li>
         <li className="navbar-item">
-          <Link to="/checkprogress" className="navbar-link">Complaint progress</Link>
+          <Link to="/ComplaintProgress" className="navbar-link">Complaint progress</Link>
         </li>
         <li className="navbar-item contact">
           
