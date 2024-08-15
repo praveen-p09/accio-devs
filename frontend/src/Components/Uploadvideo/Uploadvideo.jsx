@@ -151,7 +151,7 @@ const Uploadvideo = () => {
       <h1>Stream</h1>
         <iframe
           title="Embedded Video"
-          src="http://localhost:4000/uploadvideo"
+          src="https://accio-devs-backend.onrender.com/uploadvideo"
           style={iframeStyle}
           allowFullScreen
         ></iframe>
