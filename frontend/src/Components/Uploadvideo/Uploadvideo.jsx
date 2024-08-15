@@ -84,7 +84,7 @@ const Uploadvideo = () => {
 
   const stopStream = async (e) => {
     e.preventDefault();
-    const apiUrl = 'http://localhost:4000/stop_stream';
+    const apiUrl = 'https://accio-devs-backend.onrender.com/stop_stream';
     
     try {
       const response = await fetch(apiUrl);
