@@ -14,6 +14,7 @@ import Uploadvideo from './Components/Uploadvideo/Uploadvideo';
 import Slider from './Components/slider/Slider';
 import Workings from './Components/working/Working';
 import ComplaintProgress from './Components/ComplaintProgress/complaintProgress';
+import NotFoundPage from "./Components/notFound";
 function App() {
 
 
@@ -22,9 +23,9 @@ function App() {
       <Router>
         <Navbar/>
             <Routes>
+              <Route exact path="*" element={  <NotFoundPage/> } />
               <Route exact path="/test" element={ <Addlocation/> } />
               <Route exact path="/slide" element={ <Slider/> } />
-              
               <Route exact path="/" element={  <Home/>  } />
               <Route path="/form" element={<ImageUploadForm/>} />
               <Route path="/pothole/:holeID" element={<Pothole/>} />
