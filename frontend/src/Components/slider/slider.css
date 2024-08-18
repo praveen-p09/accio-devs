@@ -160,13 +160,14 @@
 
   @media (max-width: 600px) {
     .slide-content {
+     
       text-align: center;
-      font-size: x-large;
+      font-size: 1em;
       justify-content: center;
       overflow: hidden;
     }
     .resp-heading-slider{
-      width: 40%;
+      width: 60%;
       text-align: center;
     }
     .slide-content {
@@ -179,8 +180,11 @@
     .sliderContent{
       margin: auto;      
     }
-    .sliderContent p{
-      font-size: large;    
+    .slide-content p{
+      font-size: .5em;    
+    }
+    .slide-content h1{
+          font-size: 2em;
     }
     .slide{
       font-size: larger;
