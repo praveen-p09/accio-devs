@@ -84,7 +84,7 @@ const Uploadvideo = () => {
 
   const stopStream = async (e) => {
     e.preventDefault();
-    const apiUrl = 'http://localhost:4000/stop_stream';
+    const apiUrl = 'https://accio-devs-backend.onrender.com/stop_stream';
     
     try {
       const response = await fetch(apiUrl);
@@ -151,7 +151,7 @@ const Uploadvideo = () => {
       <h1>Stream</h1>
         <iframe
           title="Embedded Video"
-          src="http://localhost:4000/uploadvideo"
+          src="https://accio-devs-backend.onrender.com/uploadvideo"
           style={iframeStyle}
           allowFullScreen
         ></iframe>
