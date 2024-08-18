@@ -17,7 +17,7 @@ const data = [
   {
     id: 2,
     src: road3,
-    headline: "Roads are viens of a country",
+    headline: "Roads: viens of country",
     body: "There are currently no maps that displays potholes between source and destination",
     cta: "Navigate with Us",
     target: "map",
@@ -28,7 +28,7 @@ const data = [
     id: 3,
     src: road2,
     headline: "Know the project",
-    body: "",
+    body: "what this project is about?",
     cta: "Understand the working",
     target: "working",
   },

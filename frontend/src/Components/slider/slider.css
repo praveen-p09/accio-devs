@@ -33,7 +33,7 @@
     text-transform: capitalize;
     display: inline-block;
     font-family: var(--font-ferrum);
-    background-color: rgba(34, 9, 9, 0.276);
+    background-color: rgba(1, 0, 0, 0.276);
     backdrop-filter: blur(20px);
     
     padding: 0 1.5rem;
@@ -136,6 +136,9 @@
     justify-content: center;
     color: red;
   }
+  .resp-heading-slider{
+    width: auto;
+  }
   
   .slider-buttons .prev-btn,
   .slider-buttons .next-btn {
@@ -157,12 +160,14 @@
 
   @media (max-width: 600px) {
     .slide-content {
+     
       text-align: center;
-      font-size: x-large;
+      font-size: 1em;
       justify-content: center;
       overflow: hidden;
     }
     .resp-heading-slider{
+      width: 60%;
       text-align: center;
     }
     .slide-content {
@@ -175,8 +180,11 @@
     .sliderContent{
       margin: auto;      
     }
-    .sliderContent p{
-      font-size: x-large;    
+    .slide-content p{
+      font-size: .5em;    
+    }
+    .slide-content h1{
+          font-size: 2em;
     }
     .slide{
       font-size: larger;

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './complaint.css';
+import TabularData from './../ComplaintData/dataTable';
 const ComplaintProgress = () => {
   const [complaintNumber, setComplaintNumber] = useState('');
   const [progress, setProgress] = useState(0); // Initialize progress to 0 (complaint filed)
@@ -12,6 +13,7 @@ const ComplaintProgress = () => {
   };
 
   const progressLabels = [
+    'Enter Complaint ID',
     'Complaint Filed',
     'Complaint Reviewing',
     'Complaint Registered',
@@ -28,7 +30,7 @@ const ComplaintProgress = () => {
         value={complaintNumber}
         onChange={(e) => setComplaintNumber(e.target.value)}
       />
-      <button onClick={handleSearch}>Search</button>
+      <button className='inactive-button'>Search</button>
 
       <div style={{ marginTop: '20px' }}>
         <p>{progressLabels[progress]}</p>
@@ -51,6 +53,7 @@ const ComplaintProgress = () => {
           />
         </div>
       </div>
+      <TabularData/>
     </div>
   );
 };
