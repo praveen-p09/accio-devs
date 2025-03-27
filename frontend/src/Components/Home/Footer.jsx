@@ -13,6 +13,7 @@ const Footer = () => {
                         <a href="https://github.com/chirag-garg9" target="_blank"><li>Chirag Garg</li></a>
                         <a href="https://github.com/ayushshukla011" target="_blank"><li>Ayush Shukla</li></a>
                         <a href="https://github.com/harshpastor" target="_blank"><li>Harsh Pastor</li></a>
+                        <a href="https://github.com/harsshukla" target="_blank"><li>Harsh Shukla</li></a>
                         <a href="https://github.com/praveen-p09" target="_blank"><li>Praveen Patro</li></a>
                     </ul>
                 </div>
